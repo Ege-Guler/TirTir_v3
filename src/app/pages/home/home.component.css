@@ -1,0 +1,16 @@
+.featured-car-slide {
+  @apply transition-all duration-500 ease-out;
+}
+
+.nav-button {
+  @apply absolute top-1/2 -translate-y-1/2 bg-primary/90 backdrop-blur-sm p-2 
+         rounded-full text-light hover:bg-primary transition-colors;
+}
+
+.dot-indicator {
+  @apply w-2 h-2 rounded-full transition-colors;
+}
+
+:host {
+  display: block;
+}

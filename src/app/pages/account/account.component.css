@@ -1,0 +1,23 @@
+.account-section {
+  @apply space-y-6;
+}
+
+.section-title {
+  @apply text-xl font-semibold text-light;
+}
+
+.info-grid {
+  @apply grid sm:grid-cols-2 gap-4;
+}
+
+.info-label {
+  @apply block text-sm font-medium text-light/70 mb-1;
+}
+
+.info-value {
+  @apply text-light;
+}
+
+:host {
+  display: block;
+}

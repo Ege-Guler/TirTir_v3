@@ -1,0 +1,51 @@
+.weather-card {
+  @apply glass-card p-3 sm:p-4 text-light max-w-sm w-full mx-auto;
+}
+
+.weather-content {
+  @apply flex items-center gap-3 sm:gap-4;
+}
+
+.weather-icon {
+  @apply w-12 h-12 sm:w-16 sm:h-16;
+}
+
+.temperature {
+  @apply text-xl sm:text-2xl font-bold;
+}
+
+.location {
+  @apply text-xs sm:text-sm opacity-80;
+}
+
+.description {
+  @apply text-xs sm:text-sm capitalize;
+}
+
+.error-message {
+  @apply text-xs sm:text-sm text-red-400 p-2;
+}
+
+.retry-button {
+  @apply text-primary hover:text-accent underline mt-1;
+}
+
+.loading-skeleton {
+  @apply animate-pulse flex space-x-4;
+}
+
+.loading-circle {
+  @apply rounded-full bg-slate-700 h-10 w-10 sm:h-12 sm:w-12;
+}
+
+.loading-lines {
+  @apply flex-1 space-y-2;
+}
+
+.loading-line {
+  @apply h-3 sm:h-4 bg-slate-700 rounded;
+}
+
+.loading-line-short {
+  @apply h-3 sm:h-4 bg-slate-700 rounded w-3/4;
+}

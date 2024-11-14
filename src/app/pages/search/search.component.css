@@ -1,0 +1,113 @@
+.search-container {
+  @apply min-h-screen relative;
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(76, 29, 149, 0.1) 0%, transparent 50%);
+  background-attachment: fixed;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.search-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Search Bar */
+.search-bar-container {
+  @apply fixed top-20 left-1/2 -translate-x-1/2 z-30 w-[calc(100%-2rem)] sm:w-[600px] 
+         max-w-2xl px-4 sm:px-0;
+}
+
+.search-bar {
+  @apply bg-dark/95 backdrop-blur-lg rounded-full border border-white/10 
+         shadow-lg overflow-hidden transition-all duration-300
+         hover:border-white/20 hover:shadow-lg hover:shadow-primary/10;
+}
+
+/* Filter Menu */
+.filter-menu {
+  @apply fixed top-[calc(5rem+44px)] sm:top-20 left-4 z-30;
+}
+
+.filter-button {
+  @apply flex items-center justify-center gap-2 px-4 py-2 bg-dark/95 backdrop-blur-lg 
+         rounded-full border border-white/10 text-light hover:bg-white/5 
+         transition-all duration-300 w-full sm:w-auto
+         hover:border-white/20 hover:shadow-lg hover:shadow-primary/10;
+}
+
+.filter-count {
+  @apply bg-primary text-white text-xs font-medium px-2 py-0.5 rounded-full;
+}
+
+.filter-dropdown {
+  @apply fixed inset-x-0 bottom-0 w-full sm:absolute sm:bottom-auto sm:top-12 
+         sm:left-0 sm:w-[90vw] sm:max-w-2xl
+         bg-dark/95 backdrop-blur-lg rounded-none sm:rounded-xl 
+         border-t sm:border border-white/10 shadow-xl mt-2 
+         overflow-hidden z-30;
+}
+
+.filter-header {
+  @apply flex items-center justify-between p-4 border-b border-white/10 
+         sticky top-0 bg-dark/95 backdrop-blur-lg;
+}
+
+.filter-content {
+  @apply max-h-[70vh] sm:max-h-[60vh] overflow-y-auto;
+}
+
+.filter-footer {
+  @apply flex items-center gap-4 p-4 border-t border-white/10 
+         sticky bottom-0 bg-dark/95 backdrop-blur-lg;
+}
+
+.filter-overlay {
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-20;
+}
+
+/* View Toggle */
+.view-toggle {
+  @apply fixed top-[calc(5rem+44px)] sm:top-20 right-4 z-20 flex gap-2 
+         bg-dark/95 backdrop-blur-lg rounded-full p-1 shadow-lg border border-white/10
+         hover:border-white/20 hover:shadow-lg hover:shadow-primary/10
+         transition-all duration-300;
+}
+
+.view-toggle-button {
+  @apply p-2 rounded-full hover:bg-primary/10 transition-all duration-300;
+}
+
+.view-toggle-button.active {
+  @apply bg-primary text-light;
+}
+
+/* Main Content */
+.main-content {
+  @apply min-h-screen pt-40 sm:pt-32 transition-all duration-300 ease-in-out;
+}
+
+.main-content.map-view {
+  @apply pt-[calc(5rem+88px)] sm:pt-20;
+}
+
+/* Grid Layout */
+.grid-container {
+  @apply container mx-auto p-4 grid gap-4 sm:gap-6;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .search-bar-container {
+    @apply px-4;
+  }
+
+  .filter-menu {
+    @apply left-4 right-4;
+  }
+
+  .filter-button {
+    @apply w-full;
+  }
+}

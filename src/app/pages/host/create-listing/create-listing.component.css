@@ -1,0 +1,169 @@
+.step-container {
+  @apply min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4;
+}
+
+.step-content {
+  @apply container mx-auto max-w-4xl;
+}
+
+.step-card {
+  @apply glass-card p-6 sm:p-8;
+}
+
+.step-header {
+  @apply flex items-center justify-between mb-6;
+}
+
+.step-title {
+  @apply text-2xl sm:text-3xl font-bold text-light;
+}
+
+.step-subtitle {
+  @apply text-light/70 mt-2;
+}
+
+.form-group {
+  @apply space-y-4;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-light/90;
+}
+
+.form-input {
+  @apply input-field;
+}
+
+.form-select {
+  @apply input-field appearance-none bg-no-repeat bg-[right_1rem_center]
+         pr-10 cursor-pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238B5CF6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 1.5rem;
+}
+
+.form-select option {
+  @apply bg-dark text-light;
+}
+
+/* Features Grid */
+.features-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3;
+}
+
+.feature-item {
+  @apply relative aspect-square rounded-xl overflow-hidden;
+}
+
+.feature-content {
+  @apply absolute inset-0 bg-dark/50 backdrop-blur-sm border border-white/10
+         hover:bg-dark/70 transition-all duration-300 cursor-pointer
+         flex flex-col items-center justify-center p-4 text-center;
+}
+
+.feature-item.selected .feature-content {
+  @apply bg-primary/20 border-primary;
+}
+
+.feature-checkbox {
+  @apply sr-only;
+}
+
+.feature-icon {
+  @apply text-3xl mb-2;
+}
+
+.feature-label {
+  @apply text-light font-medium;
+}
+
+/* Photo Upload */
+.photo-upload {
+  @apply relative aspect-square rounded-xl overflow-hidden;
+}
+
+.photo-dropzone {
+  @apply absolute inset-0 border-2 border-dashed border-white/20 rounded-xl
+         flex flex-col items-center justify-center p-4 text-center
+         transition-all duration-300;
+}
+
+.photo-dropzone.drag-over {
+  @apply border-primary bg-primary/10;
+}
+
+.photos-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4;
+}
+
+.photo-item {
+  @apply relative aspect-square rounded-xl overflow-hidden;
+}
+
+.photo-preview {
+  @apply w-full h-full object-cover;
+}
+
+.remove-photo {
+  @apply absolute top-2 right-2 p-1 rounded-full bg-red-500/90 text-white
+         hover:bg-red-600 transition-colors;
+}
+
+/* Map Container */
+.map-container {
+  @apply h-[400px] rounded-xl overflow-hidden border border-white/10;
+}
+
+/* Custom Marker Styles */
+:host ::ng-deep .custom-div-icon {
+  background: transparent;
+  border: none;
+}
+
+/* Leaflet Controls Styling */
+:host ::ng-deep .leaflet-control-layers,
+:host ::ng-deep .leaflet-control-zoom {
+  @apply bg-dark/95 backdrop-blur-lg border-white/10 rounded-xl text-light !important;
+  margin-bottom: 20px !important;
+}
+
+:host ::ng-deep .leaflet-control-zoom {
+  margin-left: 20px !important;
+}
+
+:host ::ng-deep .leaflet-control-zoom a {
+  @apply bg-transparent text-light border-white/10 hover:bg-white/10 !important;
+}
+
+:host ::ng-deep .leaflet-popup-content-wrapper {
+  @apply bg-dark/95 backdrop-blur-lg border border-white/10 rounded-xl text-light !important;
+}
+
+:host ::ng-deep .leaflet-popup-tip {
+  @apply bg-dark/95 !important;
+}
+
+/* Location Info */
+.location-info {
+  @apply mt-4 p-4 bg-white/5 rounded-xl;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  @apply flex items-center justify-between mt-8;
+}
+
+/* Animations */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

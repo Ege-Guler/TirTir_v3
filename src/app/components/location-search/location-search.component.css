@@ -1,0 +1,67 @@
+/* Search Input */
+.input-field {
+  @apply w-full px-12 py-3 rounded-full bg-dark/50 border border-white/10 text-light
+         focus:border-primary focus:ring-1 focus:ring-primary outline-none
+         transition-all duration-300 placeholder:text-white/30;
+}
+
+.search-icon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 text-light/50 pointer-events-none;
+}
+
+.clear-button {
+  @apply absolute right-4 top-1/2 -translate-y-1/2 text-light/50 hover:text-light
+         p-1 rounded-full hover:bg-white/10 transition-colors;
+}
+
+/* Results Dropdown */
+.results-dropdown {
+  @apply absolute z-50 mt-2 w-full bg-dark/95 backdrop-blur-lg rounded-xl 
+         border border-white/10 shadow-xl overflow-hidden max-h-[60vh] overflow-y-auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.5) rgba(10, 10, 11, 0.5);
+}
+
+.results-dropdown::-webkit-scrollbar {
+  @apply w-2;
+}
+
+.results-dropdown::-webkit-scrollbar-track {
+  @apply bg-dark/50 rounded-full;
+}
+
+.results-dropdown::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full hover:bg-primary/70 transition-colors;
+}
+
+/* Loading State */
+.loading-state {
+  @apply p-3 text-light/70;
+}
+
+/* Location Items */
+.location-item {
+  @apply w-full p-3 flex items-center gap-3 hover:bg-white/5 
+         transition-colors duration-200 text-left;
+}
+
+.location-icon {
+  @apply h-5 w-5 text-primary flex-shrink-0;
+}
+
+.location-details {
+  @apply flex-1 min-w-0;
+}
+
+.location-name {
+  @apply text-light font-medium truncate;
+}
+
+.location-type {
+  @apply text-sm text-light/60 truncate;
+}
+
+:host {
+  display: block;
+  position: relative;
+}

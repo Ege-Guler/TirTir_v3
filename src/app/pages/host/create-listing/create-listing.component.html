@@ -1,0 +1,273 @@
+<div class="step-container">
+  <div class="step-content">
+    <div class="step-card">
+      <!-- Step 1: Basic Information -->
+      <div *ngIf="currentStep === 1" class="animate-fadeIn">
+        <div class="step-header">
+          <div>
+            <h1 class="step-title">Vehicle Details</h1>
+            <p class="step-subtitle">Tell us about your vehicle</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <!-- Category -->
+          <div>
+            <label class="form-label">Vehicle Type</label>
+            <select 
+              [(ngModel)]="form.category"
+              class="form-select">
+              <option *ngFor="let category of categories" [value]="category">
+                {{ category | titlecase }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Make -->
+          <div>
+            <label class="form-label">Make</label>
+            <input 
+              type="text" 
+              [(ngModel)]="form.make"
+              class="form-input"
+              placeholder="e.g., Ford, Mercedes-Benz">
+          </div>
+
+          <!-- Model -->
+          <div>
+            <label class="form-label">Model</label>
+            <input 
+              type="text" 
+              [(ngModel)]="form.model"
+              class="form-input"
+              placeholder="e.g., F-150, Actros">
+          </div>
+
+          <!-- Year -->
+          <div>
+            <label class="form-label">Year</label>
+            <input 
+              type="number" 
+              [(ngModel)]="form.year"
+              class="form-input"
+              [max]="maxYear"
+              min="1990">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Technical Details -->
+      <div *ngIf="currentStep === 2" class="animate-fadeIn">
+        <div class="step-header">
+          <div>
+            <h1 class="step-title">Technical Details</h1>
+            <p class="step-subtitle">Provide technical information about your vehicle</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <!-- Transmission -->
+          <div>
+            <label class="form-label">Transmission</label>
+            <select 
+              [(ngModel)]="form.transmission"
+              class="form-select">
+              <option *ngFor="let type of transmissionTypes" [value]="type">
+                {{ type | titlecase }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Fuel Type -->
+          <div>
+            <label class="form-label">Fuel Type</label>
+            <select 
+              [(ngModel)]="form.fuelType"
+              class="form-select">
+              <option *ngFor="let type of fuelTypes" [value]="type">
+                {{ type | titlecase }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Mileage -->
+          <div>
+            <label class="form-label">Mileage (km)</label>
+            <input 
+              type="number" 
+              [(ngModel)]="form.mileage"
+              class="form-input"
+              min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Features -->
+      <div *ngIf="currentStep === 3" class="animate-fadeIn">
+        <div class="step-header">
+          <div>
+            <h1 class="step-title">Vehicle Features</h1>
+            <p class="step-subtitle">Select all features that your vehicle has</p>
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <div *ngFor="let feature of availableFeatures"
+               (click)="toggleFeature(feature)"
+               class="feature-item"
+               [class.selected]="form.features.includes(feature)">
+            <input type="checkbox"
+                   [checked]="form.features.includes(feature)"
+                   class="feature-checkbox">
+            <div class="feature-content">
+              <span class="feature-icon">🚛</span>
+              <span class="feature-label">{{ feature }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Photos -->
+      <div *ngIf="currentStep === 4" class="animate-fadeIn">
+        <div class="step-header">
+          <div>
+            <h1 class="step-title">Vehicle Photos</h1>
+            <p class="step-subtitle">Add photos of your vehicle</p>
+          </div>
+        </div>
+
+        <!-- Photo Upload Area -->
+        <div class="photo-upload"
+             (dragover)="onDragOver($event)"
+             (dragleave)="onDragLeave($event)"
+             (drop)="onDrop($event)"
+             [class.drag-over]="isDragging">
+          <input type="file"
+                 #fileInput
+                 (change)="onFileSelected($event)"
+                 accept="image/*"
+                 multiple
+                 class="hidden">
+          
+          <div class="photo-dropzone">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                 class="h-12 w-12 text-light/50 mb-4" 
+                 fill="none" 
+                 viewBox="0 0 24 24" 
+                 stroke="currentColor">
+              <path stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <p class="text-light/70 mb-2">Drag and drop photos here</p>
+            <button (click)="fileInput.click()"
+                    class="text-primary hover:text-accent">
+              or click to upload
+            </button>
+          </div>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="photos-grid" *ngIf="form.photos.length > 0">
+          <div *ngFor="let photo of form.photos; let i = index"
+               class="photo-item">
+            <img [src]="photo" 
+                 alt="Vehicle photo" 
+                 class="photo-preview">
+            <button (click)="removePhoto(i)"
+                    class="remove-photo">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                   class="h-4 w-4" 
+                   fill="none" 
+                   viewBox="0 0 24 24" 
+                   stroke="currentColor">
+                <path stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      stroke-width="2" 
+                      d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Location -->
+      <div *ngIf="currentStep === 5" class="animate-fadeIn">
+        <div class="step-header">
+          <div>
+            <h1 class="step-title">Vehicle Location</h1>
+            <p class="step-subtitle">Where is your vehicle located?</p>
+          </div>
+        </div>
+
+        <button 
+          (click)="getCurrentLocation()"
+          class="btn btn-outline mb-4"
+          [disabled]="isLoadingLocation">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               class="h-5 w-5 mr-2" 
+               fill="none" 
+               viewBox="0 0 24 24" 
+               stroke="currentColor">
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          {{ isLoadingLocation ? 'Getting location...' : 'Use My Current Location' }}
+        </button>
+
+        <!-- Error Message -->
+        <div *ngIf="locationError"
+             class="mb-4 p-4 bg-red-500/10 text-red-400 rounded-xl">
+          {{ locationError }}
+        </div>
+
+        <!-- Map -->
+        <div id="location-map" 
+             #locationMap
+             class="map-container">
+        </div>
+
+        <!-- Selected Location -->
+        <div *ngIf="form.location.address"
+             class="location-info">
+          <h3 class="text-light font-medium mb-2">Selected Location</h3>
+          <p class="text-light/70">{{ form.location.address }}</p>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="nav-buttons">
+        <button 
+          *ngIf="currentStep > 1"
+          (click)="previousStep()"
+          class="btn btn-outline">
+          Previous
+        </button>
+        
+        <div class="flex-1"></div>
+        
+        <button 
+          *ngIf="currentStep < totalSteps"
+          (click)="nextStep()"
+          class="btn btn-primary">
+          Next
+        </button>
+
+        <button 
+          *ngIf="currentStep === totalSteps"
+          [disabled]="!form.location.address"
+          (click)="onSubmit()"
+          class="btn btn-primary">
+          Submit Listing
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

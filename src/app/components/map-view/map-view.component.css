@@ -1,0 +1,129 @@
+.map-container {
+  @apply fixed inset-0 top-[calc(4rem+44px)] sm:top-16 bg-dark;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.map-container::-webkit-scrollbar {
+  display: none;
+}
+
+#map {
+  @apply h-full w-full;
+}
+
+/* Nearest Cars Toggle Button */
+.nearest-cars-toggle {
+  @apply fixed right-4 bottom-4 z-[1001] px-4 py-2 
+         bg-dark/95 backdrop-blur-lg rounded-full border border-white/10 
+         text-light shadow-lg transition-all duration-300
+         hover:bg-white/5;
+}
+
+/* Nearest Cars Panel */
+.nearest-cars-panel {
+  @apply fixed right-4 bottom-16 w-80 max-h-[calc(100vh-12rem)]
+         bg-dark/95 backdrop-blur-lg rounded-xl border border-white/10 
+         shadow-lg overflow-hidden z-[1000] transition-all duration-300;
+}
+
+.nearest-cars-panel.hidden {
+  @apply translate-x-[120%];
+}
+
+.nearest-cars-header {
+  @apply flex items-center justify-between p-4 border-b border-white/10 
+         sticky top-0 bg-dark/95 backdrop-blur-lg;
+}
+
+.nearest-cars-list {
+  @apply p-4 space-y-4 overflow-y-auto max-h-[calc(100vh-16rem)] pr-2;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nearest-cars-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom Marker Styles */
+:host ::ng-deep .custom-div-icon {
+  background: transparent;
+  border: none;
+}
+
+/* Leaflet Controls Styling */
+:host ::ng-deep .leaflet-control-layers,
+:host ::ng-deep .leaflet-control-zoom {
+  @apply bg-dark/95 backdrop-blur-lg border-white/10 rounded-xl text-light !important;
+  margin-bottom: 20px !important;
+}
+
+:host ::ng-deep .leaflet-control-zoom {
+  margin-left: 20px !important;
+}
+
+:host ::ng-deep .leaflet-control-layers {
+  margin-left: 10px !important;
+}
+
+:host ::ng-deep .leaflet-control-zoom a {
+  @apply bg-transparent text-light border-white/10 hover:bg-white/10 !important;
+}
+
+:host ::ng-deep .leaflet-control-layers-toggle {
+  @apply bg-white/10 hover:bg-white/20 transition-colors !important;
+  width: 36px !important;
+  height: 36px !important;
+}
+
+:host ::ng-deep .leaflet-control-layers-expanded {
+  @apply p-4 min-w-[200px] !important;
+}
+
+:host ::ng-deep .leaflet-control-layers-base label,
+:host ::ng-deep .leaflet-control-layers-overlays label {
+  @apply flex items-center gap-2 py-1 text-light !important;
+}
+
+:host ::ng-deep .leaflet-control-layers-separator {
+  @apply border-white/10 !important;
+}
+
+:host ::ng-deep .leaflet-control-layers-list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+:host ::ng-deep .leaflet-control-layers-list::-webkit-scrollbar {
+  display: none;
+}
+
+:host ::ng-deep .leaflet-popup-content-wrapper {
+  @apply bg-dark/95 backdrop-blur-lg border border-white/10 rounded-xl text-light !important;
+}
+
+:host ::ng-deep .leaflet-popup-tip {
+  @apply bg-dark/95 !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .nearest-cars-panel {
+    @apply fixed inset-x-0 bottom-0 w-full rounded-t-xl rounded-b-none 
+           max-h-[70vh] translate-y-0 transition-transform duration-300;
+  }
+
+  .nearest-cars-panel.hidden {
+    @apply translate-y-full;
+  }
+
+  .nearest-cars-toggle {
+    @apply bottom-4 right-4;
+  }
+
+  .leaflet-control-zoom,
+  .leaflet-control-layers {
+    @apply mb-4 !important;
+  }
+}

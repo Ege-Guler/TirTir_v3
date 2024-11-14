@@ -1,0 +1,98 @@
+<div class="header">
+  <nav class="header-nav">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a routerLink="/" class="logo">TırTır</a>
+
+      <!-- Desktop Navigation -->
+      <div class="desktop-nav">
+        <a routerLink="/search" class="nav-link">Find Cars</a>
+        <ng-container *ngIf="authService.currentUser$ | async as user">
+          <a routerLink="/account/host/create" class="nav-link">List Your Car</a>
+          <div class="relative">
+            <button (click)="toggleAccountMenu()" class="user-button">
+              <div class="user-avatar">
+                <span class="text-primary font-medium">{{ user.firstName[0] }}</span>
+              </div>
+              <span class="user-name">{{ user.firstName }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <!-- Account Dropdown -->
+            <div *ngIf="isAccountMenuOpen" class="dropdown-menu">
+              <a routerLink="/account" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                Profile
+              </a>
+              <a routerLink="/account/host" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                </svg>
+                My Listings
+              </a>
+              <a routerLink="/account/transactions" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                Transactions
+              </a>
+              <a routerLink="/account/billing" class="menu-item">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+                Billing
+              </a>
+              <div class="menu-divider"></div>
+              <button (click)="logout()" class="menu-item text-red-400 hover:text-red-300 w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Logout
+              </button>
+            </div>
+          </div>
+        </ng-container>
+        
+        <ng-container *ngIf="!(authService.currentUser$ | async)">
+          <a routerLink="/login" class="nav-link">Login</a>
+          <a routerLink="/register" class="btn btn-primary">Sign Up</a>
+        </ng-container>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-button" (click)="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen" class="mobile-menu">
+    <div class="mobile-menu-container">
+      <a routerLink="/search" class="mobile-nav-link" (click)="isMenuOpen = false">Find Cars</a>
+      
+      <ng-container *ngIf="authService.currentUser$ | async as user">
+        <div class="mobile-menu-divider"></div>
+        <a routerLink="/account" class="mobile-nav-link" (click)="isMenuOpen = false">Profile</a>
+        <a routerLink="/account/host/create" class="mobile-nav-link" (click)="isMenuOpen = false">List Your Car</a>
+        <a routerLink="/account/host" class="mobile-nav-link" (click)="isMenuOpen = false">My Listings</a>
+        <a routerLink="/account/transactions" class="mobile-nav-link" (click)="isMenuOpen = false">Transactions</a>
+        <a routerLink="/account/billing" class="mobile-nav-link" (click)="isMenuOpen = false">Billing</a>
+        <button (click)="logout()" class="mobile-nav-link text-red-400">Logout</button>
+      </ng-container>
+
+      <ng-container *ngIf="!(authService.currentUser$ | async)">
+        <div class="mobile-menu-divider"></div>
+        <a routerLink="/login" class="mobile-nav-link" (click)="isMenuOpen = false">Login</a>
+        <a routerLink="/register" class="mobile-nav-link" (click)="isMenuOpen = false">Sign Up</a>
+      </ng-container>
+    </div>
+  </div>
+</div>

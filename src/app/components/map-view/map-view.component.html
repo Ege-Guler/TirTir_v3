@@ -1,0 +1,52 @@
+<div class="map-container">
+  <div id="map"></div>
+  
+  <!-- Nearest Cars Toggle Button -->
+  <button 
+    (click)="toggleNearestCars()"
+    class="nearest-cars-toggle"
+    [class.expanded]="showNearestCars">
+    <span class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7h-3v2h3V7z" />
+      </svg>
+      {{ showNearestCars ? 'Hide' : 'Show' }} Nearest Cars
+    </span>
+  </button>
+  
+  <!-- Nearest Cars Panel -->
+  <div class="nearest-cars-panel" [class.hidden]="!showNearestCars">
+    <div class="nearest-cars-header">
+      <div>
+        <h3 class="text-lg font-bold text-light">
+          {{ selectedCar ? selectedCar.make + ' ' + selectedCar.model : 'Nearest Cars' }}
+        </h3>
+        <span class="text-sm text-light/70">Within 10km</span>
+      </div>
+      <button 
+        (click)="toggleNearestCars()"
+        class="p-2 hover:bg-white/5 rounded-lg transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             class="h-5 w-5 text-light/70" 
+             fill="none" 
+             viewBox="0 0 24 24" 
+             stroke="currentColor">
+          <path stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="nearest-cars-list">
+      <app-car-card 
+        *ngFor="let car of nearestCars" 
+        [car]="car" 
+        [compact]="true">
+      </app-car-card>
+    </div>
+  </div>
+</div>

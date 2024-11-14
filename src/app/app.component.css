@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+main {
+  min-height: calc(100vh - 64px);
+}
+
+.welcome-overlay {
+  @apply fixed inset-0 z-50 bg-dark flex items-center justify-center;
+  animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+.welcome-overlay[hidden] {
+  display: none;
+}
+
+.welcome-content {
+  @apply text-center;
+}
+
+.logo-container {
+  animation: scaleUp 1.5s ease-in-out;
+}
+
+.welcome-logo {
+  @apply text-6xl sm:text-7xl md:text-8xl font-clash font-bold bg-gradient-to-r 
+         from-primary to-accent bg-clip-text text-transparent;
+}
+
+.welcome-text {
+  @apply text-light/70 text-lg sm:text-xl mt-4 opacity-0;
+  animation: fadeIn 0.5s ease-in-out 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,128 @@
+<div class="min-h-screen bg-gradient-radial from-secondary via-dark to-dark">
+  <!-- Hero Section -->
+  <section class="hero min-h-[80vh] flex items-center justify-center p-4">
+    <div class="text-center max-w-4xl mx-auto space-y-6 px-4">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-light mb-4 leading-tight">
+        Find Your Perfect Car
+        <span class="text-primary block mt-2">For Any Journey</span>
+      </h1>
+      
+      <p class="text-lg sm:text-xl text-light/80 mb-6 max-w-2xl mx-auto">
+        Experience luxury and comfort with our premium selection of vehicles
+      </p>
+
+      <app-weather-widget class="inline-block mb-6"></app-weather-widget>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <app-button routerLink="/search" size="lg" [full]="true" class="sm:w-auto">
+          Start Searching
+        </app-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Cars Section -->
+  <section class="py-12 sm:py-16 container mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-light mb-8">Featured Cars</h2>
+    
+    <div class="relative">
+      <!-- Slider Container -->
+      <div class="overflow-hidden rounded-xl">
+        <div class="flex transition-transform duration-500 ease-out"
+             [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+          <div *ngFor="let car of featuredCars" 
+               class="min-w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+            <!-- Car Card -->
+            <div *ngFor="let i of [0,1,2]" 
+                 class="glass-card group cursor-pointer overflow-hidden"
+                 routerLink="/search"
+                 [class.hidden]="i >= featuredCars.length">
+              <!-- Image container with overlay -->
+              <div class="relative overflow-hidden">
+                <img [src]="featuredCars[i].image || ''" 
+                     [alt]="(featuredCars[i].make || '') + ' ' + (featuredCars[i].model || '')"
+                     class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <!-- Price tag -->
+                <div class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  <span class="text-light font-semibold">${{ featuredCars[i].price || 0 }}/day</span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="p-4">
+                <h3 class="text-xl font-bold text-light">
+                  {{ featuredCars[i].year || '' }} {{ featuredCars[i].make || '' }} {{ featuredCars[i].model || '' }}
+                </h3>
+                <div class="mt-2 flex items-center gap-4 text-light/60">
+                  <div class="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span>{{ featuredCars[i].mileage || 0 | number }} km</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    </svg>
+                    <span>{{ featuredCars[i].location.address || '' }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <button (click)="prevSlide()" 
+              class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 
+                     bg-primary/90 backdrop-blur-sm p-2 rounded-full 
+                     text-light hover:bg-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button (click)="nextSlide()" 
+              class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 
+                     bg-primary/90 backdrop-blur-sm p-2 rounded-full 
+                     text-light hover:bg-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Dots Navigation -->
+      <div class="flex justify-center gap-2 mt-6">
+        <button *ngFor="let _ of featuredCars; let i = index" 
+                (click)="setSlide(i)"
+                class="w-2 h-2 rounded-full transition-colors"
+                [class.bg-primary]="currentSlide === i"
+                [class.bg-white]="currentSlide !== i">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-12 sm:py-16 px-4">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-light mb-8 sm:mb-12">How It Works</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+      <div class="glass-card p-6 text-center">
+        <h3 class="text-lg sm:text-xl font-semibold mb-3 text-light">Find the Perfect Car</h3>
+        <p class="text-light/80 text-sm sm:text-base">Browse our selection of cars and find the one that fits your needs</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <h3 class="text-lg sm:text-xl font-semibold mb-3 text-light">Book Your Trip</h3>
+        <p class="text-light/80 text-sm sm:text-base">Choose your dates and book instantly</p>
+      </div>
+      <div class="glass-card p-6 text-center">
+        <h3 class="text-lg sm:text-xl font-semibold mb-3 text-light">Hit the Road</h3>
+        <p class="text-light/80 text-sm sm:text-base">Pick up your car and start your journey</p>
+      </div>
+    </div>
+  </section>
+</div>

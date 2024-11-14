@@ -1,0 +1,151 @@
+.card {
+  @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.05] rounded-xl 
+         overflow-hidden transition-all duration-300 hover:shadow-xl 
+         hover:shadow-primary/5 hover:-translate-y-1 
+         hover:bg-white/[0.05] hover:border-white/[0.08];
+}
+
+.image-container {
+  @apply relative overflow-hidden;
+}
+
+.car-image {
+  @apply w-full h-48 sm:h-56 object-cover transition-transform duration-500;
+}
+
+.card:hover .car-image {
+  @apply scale-110;
+}
+
+.image-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent 
+         opacity-0 transition-opacity duration-300;
+}
+
+.card:hover .image-overlay {
+  @apply opacity-100;
+}
+
+.price-tag {
+  @apply absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-3 py-1.5 rounded-full;
+}
+
+.price {
+  @apply text-light font-semibold;
+}
+
+.content {
+  @apply p-4 space-y-3;
+}
+
+.car-title {
+  @apply text-xl font-clash font-bold text-light;
+}
+
+.car-details {
+  @apply flex flex-wrap items-center gap-4 mt-1 text-light/60;
+}
+
+.detail-item {
+  @apply flex items-center gap-1;
+}
+
+.detail-icon {
+  @apply h-4 w-4;
+}
+
+.features-list {
+  @apply flex flex-wrap gap-2;
+}
+
+.feature-tag {
+  @apply text-xs px-2 py-1 rounded-full bg-white/5 text-light/70;
+}
+
+.owner-section {
+  @apply flex items-center justify-between pt-2 border-t border-white/5;
+}
+
+.owner-info {
+  @apply flex items-center gap-2;
+}
+
+.owner-avatar {
+  @apply w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center;
+}
+
+.owner-initial {
+  @apply text-primary font-medium;
+}
+
+.owner-details {
+  @apply flex flex-col;
+}
+
+.owner-name {
+  @apply text-sm font-medium text-light;
+}
+
+.owner-rating {
+  @apply flex items-center gap-1 text-xs text-light/60;
+}
+
+.rating-star {
+  @apply h-3 w-3 text-yellow-500;
+}
+
+.contact-buttons {
+  @apply flex gap-2;
+}
+
+.contact-button {
+  @apply p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors;
+}
+
+.contact-icon {
+  @apply h-4 w-4 text-primary;
+}
+
+/* Compact Card Styles */
+.card.compact {
+  @apply hover:translate-y-0;
+}
+
+.card.compact .image-container {
+  @apply h-24 sm:h-28;
+}
+
+.card.compact .car-image {
+  @apply h-24 sm:h-28;
+}
+
+.card.compact .content {
+  @apply p-2 sm:p-3 space-y-1;
+}
+
+.card.compact .car-title {
+  @apply text-base;
+}
+
+.card.compact .car-details {
+  @apply text-xs gap-2;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .car-image {
+    @apply h-40;
+  }
+
+  .content {
+    @apply p-3;
+  }
+
+  .car-title {
+    @apply text-lg;
+  }
+
+  .car-details {
+    @apply text-sm;
+  }
+}

@@ -1,0 +1,77 @@
+<div class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4">
+  <div class="container mx-auto max-w-4xl">
+    <div class="glass-card p-6 sm:p-8">
+      <h1 class="text-2xl sm:text-3xl font-bold text-light mb-6">Billing Details</h1>
+
+      <div class="space-y-6">
+        <!-- Payment Methods -->
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold text-light">Payment Methods</h2>
+            <app-button variant="outline" size="sm">Add New</app-button>
+          </div>
+
+          <div class="space-y-4">
+            <div *ngFor="let method of paymentMethods" 
+                 class="flex items-center justify-between p-4 bg-white/5 rounded-xl">
+              <div class="flex items-center gap-4">
+                <!-- Card Icon -->
+                <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                  <svg *ngIf="method.type === 'card'" xmlns="http://www.w3.org/2000/svg" 
+                       class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" 
+                       stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  <svg *ngIf="method.type === 'paypal'" xmlns="http://www.w3.org/2000/svg" 
+                       class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" 
+                       stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+
+                <div>
+                  <div class="font-medium text-light">
+                    {{ method.type === 'card' ? 'Credit Card' : 'PayPal' }}
+                    <span *ngIf="method.isDefault" 
+                          class="ml-2 text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full">
+                      Default
+                    </span>
+                  </div>
+                  <div class="text-sm text-light/70">
+                    {{ method.type === 'card' ? '•••• ' + method.last4 : 'Connected' }}
+                    <span *ngIf="method.expiryDate" class="ml-2">
+                      Expires {{ method.expiryDate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button *ngIf="!method.isDefault"
+                        (click)="setDefaultPaymentMethod(method.id)"
+                        class="p-2 text-light/70 hover:text-primary transition-colors">
+                  Set Default
+                </button>
+                <button (click)="removePaymentMethod(method.id)"
+                        class="p-2 text-red-400 hover:text-red-300 transition-colors">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing Address -->
+        <div>
+          <h2 class="text-xl font-semibold text-light mb-4">Billing Address</h2>
+          <div class="p-4 bg-white/5 rounded-xl">
+            <p class="text-light/70">No billing address added yet.</p>
+            <app-button variant="outline" size="sm" class="mt-4">Add Address</app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

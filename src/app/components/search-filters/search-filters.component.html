@@ -1,0 +1,146 @@
+<div class="p-4 space-y-6">
+  <!-- Location Search -->
+  <div class="filter-group">
+    <label class="filter-label">Location</label>
+    <app-location-search
+      (locationSelected)="onLocationSelected($event)">
+    </app-location-search>
+  </div>
+
+  <!-- Category -->
+  <div class="filter-group">
+    <label class="filter-label">Vehicle Type</label>
+    <select 
+      class="input-field" 
+      [(ngModel)]="selectedCategory"
+      (ngModelChange)="onFilterChange()">
+      <option value="">All Types</option>
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category | titlecase }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Price Range -->
+  <div class="filter-group">
+    <label class="filter-label">Daily Price Range</label>
+    <div class="flex items-center gap-4">
+      <span class="text-light/70 min-w-[3rem]">${{ minPrice }}</span>
+      <input 
+        type="range" 
+        [min]="minPrice" 
+        [max]="300" 
+        [(ngModel)]="maxPrice"
+        (ngModelChange)="onFilterChange()">
+      <span class="text-light/70 min-w-[3rem]">${{ maxPrice }}</span>
+    </div>
+  </div>
+  
+  <!-- Make Selection -->
+  <div class="filter-group">
+    <label class="filter-label">Make</label>
+    <select 
+      class="input-field" 
+      [(ngModel)]="selectedMake"
+      (ngModelChange)="onFilterChange()">
+      <option value="">All Makes</option>
+      <option *ngFor="let make of makes" [value]="make">{{ make }}</option>
+    </select>
+  </div>
+
+  <!-- Transmission -->
+  <div class="filter-group">
+    <label class="filter-label">Transmission</label>
+    <select 
+      class="input-field" 
+      [(ngModel)]="selectedTransmission"
+      (ngModelChange)="onFilterChange()">
+      <option value="">Any Transmission</option>
+      <option *ngFor="let type of transmissionTypes" [value]="type">
+        {{ type | titlecase }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Fuel Type -->
+  <div class="filter-group">
+    <label class="filter-label">Fuel Type</label>
+    <select 
+      class="input-field" 
+      [(ngModel)]="selectedFuelType"
+      (ngModelChange)="onFilterChange()">
+      <option value="">Any Fuel Type</option>
+      <option *ngFor="let type of fuelTypes" [value]="type">
+        {{ type | titlecase }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Year Range -->
+  <div class="filter-group">
+    <label class="filter-label">Year</label>
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label class="text-xs text-light/70">From</label>
+        <select 
+          class="input-field mt-1" 
+          [(ngModel)]="minYear"
+          (ngModelChange)="onFilterChange()">
+          <option *ngFor="let year of yearRange" [value]="year">{{ year }}</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-xs text-light/70">To</label>
+        <select 
+          class="input-field mt-1" 
+          [(ngModel)]="maxYear"
+          (ngModelChange)="onFilterChange()">
+          <option *ngFor="let year of yearRange" [value]="year">{{ year }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mileage Range -->
+  <div class="filter-group">
+    <label class="filter-label">Maximum Mileage (km)</label>
+    <div class="flex items-center gap-4">
+      <span class="text-light/70 min-w-[3rem]">0</span>
+      <input 
+        type="range" 
+        min="0" 
+        max="200000" 
+        step="5000"
+        [(ngModel)]="maxMileage"
+        (ngModelChange)="onFilterChange()">
+      <span class="text-light/70 min-w-[4rem]">{{ maxMileage | number }}</span>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="filter-group">
+    <label class="filter-label">Features</label>
+    <div class="grid grid-cols-2 gap-2 mt-2">
+      <div *ngFor="let feature of features" 
+           class="flex items-center">
+        <input 
+          type="checkbox"
+          [id]="feature"
+          [checked]="selectedFeatures.includes(feature)"
+          (change)="toggleFeature(feature)"
+          class="h-4 w-4 rounded border-gray-600 bg-dark text-primary focus:ring-primary">
+        <label [for]="feature" class="ml-2 text-sm text-light/70">
+          {{ feature }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear Filters -->
+  <button 
+    (click)="clearFilters()"
+    class="w-full px-4 py-2 bg-white/5 hover:bg-white/10 text-light/70 
+           hover:text-light rounded-xl transition-colors">
+    Clear All Filters
+  </button>
+</div>

@@ -1,0 +1,31 @@
+<div class="weather-card">
+  <ng-container *ngIf="!error && !isLoading; else loadingOrError">
+    <div class="weather-content" *ngIf="weather">
+      <img [src]="weather.icon" [alt]="weather.description" class="weather-icon">
+      <div>
+        <div class="temperature">{{ weather.temperature }}°C</div>
+        <div class="location">{{ weather.location }}</div>
+        <div class="description">{{ weather.description }}</div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loadingOrError>
+    <ng-container *ngIf="error; else loadingTpl">
+      <div class="error-message">
+        <p>{{ error }}</p>
+        <button (click)="retryWeather()" class="retry-button">Retry</button>
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #loadingTpl>
+    <div class="loading-skeleton">
+      <div class="loading-circle"></div>
+      <div class="loading-lines">
+        <div class="loading-line"></div>
+        <div class="loading-line-short"></div>
+      </div>
+    </div>
+  </ng-template>
+</div>

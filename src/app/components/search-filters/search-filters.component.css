@@ -1,0 +1,75 @@
+.filter-group {
+  @apply space-y-2 px-4 py-3 first:pt-0 last:pb-0;
+}
+
+.filter-label {
+  @apply block text-sm font-medium text-light/90;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 rounded-xl bg-dark/50 border border-white/10 text-light
+         focus:border-primary focus:ring-1 focus:ring-primary outline-none
+         transition-all duration-300;
+}
+
+/* Range Input Styling */
+input[type="range"] {
+  @apply w-full h-2 bg-dark/50 rounded-lg appearance-none cursor-pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-6 h-6 rounded-full bg-primary border-2 border-dark
+         cursor-pointer transition-all duration-300 hover:scale-110;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply w-6 h-6 rounded-full bg-primary border-2 border-dark
+         cursor-pointer transition-all duration-300 hover:scale-110;
+}
+
+/* Select Input Styling */
+select {
+  @apply input-field appearance-none bg-no-repeat bg-[right_1rem_center]
+         pr-10 cursor-pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238B5CF6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 1.5rem;
+}
+
+select option {
+  @apply bg-dark text-light;
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+  @apply h-5 w-5 rounded border-gray-600 bg-dark text-primary 
+         focus:ring-primary focus:ring-offset-0 focus:ring-offset-transparent;
+}
+
+/* Features Grid */
+.features-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-2;
+}
+
+.feature-item {
+  @apply flex items-center space-x-2 p-2 rounded-lg hover:bg-white/5 
+         transition-colors cursor-pointer;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .filter-group {
+    @apply py-4;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply w-8 h-8;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply w-8 h-8;
+  }
+
+  .input-field {
+    @apply py-4;
+  }
+}

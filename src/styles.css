@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-clash: 'Clash Display', system-ui, -apple-system;
+    --font-satoshi: 'Satoshi', system-ui, -apple-system;
+  }
+
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    @apply bg-dark text-light font-satoshi min-h-screen text-sm sm:text-base overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(76, 29, 149, 0.1) 0%, transparent 40%),
+      linear-gradient(to bottom right, rgba(139, 92, 246, 0.05) 0%, rgba(76, 29, 149, 0.05) 100%);
+    background-attachment: fixed;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-clash font-bold;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full hover:bg-primary/70 transition-colors;
+  }
+
+  /* Firefox Scrollbar Styles */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.primary.DEFAULT / 0.5') theme('colors.dark.DEFAULT / 0.5');
+  }
+
+  /* Hide scrollbar for map view */
+  .map-view {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .map-view::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.05] rounded-xl shadow-lg
+           hover:shadow-xl hover:shadow-primary/5 transition-all duration-300
+           hover:bg-white/[0.05] hover:border-white/[0.08];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl font-medium
+           transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed
+           hover:scale-105 active:scale-100;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-secondary text-white 
+           hover:shadow-lg hover:shadow-primary/25 focus:ring-2 focus:ring-primary/20;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary/10
+           focus:ring-2 focus:ring-primary/20;
+  }
+
+  .nav-link {
+    @apply relative text-light/80 hover:text-primary transition-colors duration-300
+           after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5
+           after:bg-primary after:transition-all after:duration-300
+           hover:after:w-full;
+  }
+
+  .mobile-nav-link {
+    @apply block w-full px-4 py-3 text-lg font-medium text-light/80 
+           hover:text-primary rounded-xl hover:bg-white/5 
+           transition-all duration-300;
+  }
+
+  .menu-item {
+    @apply flex items-center gap-3 px-4 py-2.5 text-light/80 hover:text-primary
+           hover:bg-white/5 transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-dark/50 border border-white/10 text-light
+           focus:border-primary focus:ring-1 focus:ring-primary outline-none
+           transition-all duration-300 placeholder:text-white/30;
+  }
+}
+
+/* Map styles */
+.leaflet-container {
+  @apply h-[calc(100vh-4rem)] w-full border-none;
+}
+
+.leaflet-control-layers {
+  @apply bg-dark/95 backdrop-blur-lg border-white/10 rounded-xl text-light !important;
+}
+
+.leaflet-control-layers-toggle {
+  @apply bg-white/10 hover:bg-white/20 transition-colors !important;
+}
+
+.leaflet-control-layers-expanded {
+  @apply p-4 min-w-[200px] !important;
+}
+
+.leaflet-control-layers-base label,
+.leaflet-control-layers-overlays label {
+  @apply flex items-center gap-2 py-1 text-light !important;
+}
+
+.leaflet-control-layers-separator {
+  @apply border-white/10 !important;
+}
+
+/* Custom font faces */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/assets/fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+}

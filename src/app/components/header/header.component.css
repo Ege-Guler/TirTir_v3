@@ -1,0 +1,89 @@
+.header {
+  @apply sticky top-0 z-50 bg-dark/80 backdrop-blur-lg border-b border-white/10;
+}
+
+.header-nav {
+  @apply container mx-auto px-4 h-16;
+}
+
+.nav-container {
+  @apply flex items-center justify-between h-full;
+}
+
+.logo {
+  @apply text-3xl font-clash font-bold bg-gradient-to-r from-primary to-accent 
+         bg-clip-text text-transparent transition-all duration-500 hover:scale-110;
+  animation: float 6s ease-in-out infinite;
+}
+
+.desktop-nav {
+  @apply hidden md:flex items-center space-x-6;
+}
+
+.user-button {
+  @apply flex items-center gap-2 p-2 rounded-xl hover:bg-white/5 transition-colors;
+}
+
+.user-avatar {
+  @apply w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center;
+}
+
+.user-name {
+  @apply text-light;
+}
+
+.dropdown-arrow {
+  @apply h-5 w-5 text-light/50;
+}
+
+.dropdown-menu {
+  @apply absolute right-0 mt-2 w-48 bg-dark/95 backdrop-blur-xl rounded-xl 
+         border border-white/10 shadow-xl py-2;
+}
+
+.menu-divider {
+  @apply border-t border-white/10 my-2;
+}
+
+.mobile-menu-button {
+  @apply md:hidden p-2 text-light hover:text-primary;
+}
+
+.mobile-menu {
+  @apply md:hidden bg-dark/95 backdrop-blur-xl border-t border-white/10;
+}
+
+.mobile-menu-container {
+  @apply container mx-auto px-4 py-4 space-y-4;
+}
+
+.mobile-menu-divider {
+  @apply border-t border-white/10 my-4;
+}
+
+.nav-link {
+  @apply relative text-light/80 hover:text-primary transition-colors duration-300
+         after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5
+         after:bg-primary after:transition-all after:duration-300
+         hover:after:w-full;
+}
+
+.mobile-nav-link {
+  @apply block w-full px-4 py-3 text-lg font-medium text-light/80 
+         hover:text-primary rounded-xl hover:bg-white/5 
+         transition-all duration-300;
+}
+
+.menu-item {
+  @apply flex items-center gap-3 px-4 py-2.5 text-light/80 hover:text-primary
+         hover:bg-white/5 transition-colors duration-200;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
