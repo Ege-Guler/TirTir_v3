@@ -1,10 +1,9 @@
 {
   "appId": "com.tirtir.app",
-  "appName": "TırTır",
+  "appName": "TirTir",
   "webDir": "dist/demo/browser",
   "server": {
-    "androidScheme": "https",
-    "cleartext": true
+    "androidScheme": "https"
   },
   "plugins": {
     "Geolocation": {

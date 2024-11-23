@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Car } from '../../services/car.service';
 import { CarCardComponent } from '../car-card/car-card.component';
 import * as L from 'leaflet';
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-map-view',
