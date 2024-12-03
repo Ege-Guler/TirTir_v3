@@ -1,14 +1,14 @@
 <div class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark flex items-center justify-center p-4">
   <div class="glass-card w-full max-w-md p-6 sm:p-8">
     <div class="text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-bold text-light mb-2">Create Account</h2>
-      <p class="text-light/70">Join TırTır and start your journey</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-light mb-2">Hesap Oluştur</h2>
+      <p class="text-light/70">TırTır evrenine hemen katıl!</p>
     </div>
 
     <form class="space-y-6" (ngSubmit)="onSubmit()">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label for="firstName" class="block text-sm font-medium text-light/90 mb-2">First Name</label>
+          <label for="firstName" class="block text-sm font-medium text-light/90 mb-2">Ad</label>
           <input 
             id="firstName" 
             type="text" 
@@ -19,7 +19,7 @@
         </div>
 
         <div>
-          <label for="lastName" class="block text-sm font-medium text-light/90 mb-2">Last Name</label>
+          <label for="lastName" class="block text-sm font-medium text-light/90 mb-2">Soyad</label>
           <input 
             id="lastName" 
             type="text" 
@@ -42,7 +42,7 @@
       </div>
 
       <div>
-        <label for="phone" class="block text-sm font-medium text-light/90 mb-2">Phone Number</label>
+        <label for="phone" class="block text-sm font-medium text-light/90 mb-2">Telefon</label>
         <input 
           id="phone" 
           type="tel" 
@@ -53,7 +53,7 @@
       </div>
 
       <div>
-        <label for="password" class="block text-sm font-medium text-light/90 mb-2">Password</label>
+        <label for="password" class="block text-sm font-medium text-light/90 mb-2">Şifre</label>
         <input 
           id="password" 
           type="password" 
@@ -64,7 +64,7 @@
       </div>
 
       <div>
-        <label for="confirmPassword" class="block text-sm font-medium text-light/90 mb-2">Confirm Password</label>
+        <label for="confirmPassword" class="block text-sm font-medium text-light/90 mb-2">Tekrar Şifre</label>
         <input 
           id="confirmPassword" 
           type="password" 
@@ -94,8 +94,8 @@
       </app-button>
 
       <div class="text-center text-light/70">
-        Already have an account? 
-        <a routerLink="/login" class="text-primary hover:text-accent ml-1">Sign in</a>
+        Hesabım var. 
+        <a routerLink="/login" class="text-primary hover:text-accent ml-1">Giriş Yap</a>
       </div>
     </form>
   </div>

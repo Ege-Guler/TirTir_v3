@@ -51,6 +51,7 @@ export class SearchComponent implements OnInit {
     this.initTempFilters();
   }
 
+  
   private initTempFilters() {
     this.tempFilters = {
       maxPrice: this.maxPrice,

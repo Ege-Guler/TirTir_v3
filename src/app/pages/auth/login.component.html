@@ -1,8 +1,8 @@
 <div class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark flex items-center justify-center p-4">
   <div class="glass-card w-full max-w-md p-6 sm:p-8">
     <div class="text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-bold text-light mb-2">Welcome Back</h2>
-      <p class="text-light/70">Sign in to your TırTır account</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-light mb-2">Tekrardan Hoşgeldin</h2>
+      <p class="text-light/70">Tırtır Hesabına Hemen Giriş Yap</p>
     </div>
 
     <form class="space-y-6" (ngSubmit)="onSubmit()">
@@ -18,7 +18,7 @@
       </div>
 
       <div>
-        <label for="password" class="block text-sm font-medium text-light/90 mb-2">Password</label>
+        <label for="password" class="block text-sm font-medium text-light/90 mb-2">Şifre</label>
         <input 
           id="password" 
           type="password" 
@@ -36,9 +36,9 @@
             [(ngModel)]="rememberMe" 
             name="remember"
             class="h-4 w-4 rounded border-gray-600 bg-dark text-primary focus:ring-primary">
-          <label for="remember" class="ml-2 text-light/70">Remember me</label>
+          <label for="remember" class="ml-2 text-light/70">Beni hatırla</label>
         </div>
-        <a routerLink="/forgot-password" class="text-primary hover:text-accent">Forgot password?</a>
+        <a routerLink="/forgot-password" class="text-primary hover:text-accent">Şifremi Unuttum</a>
       </div>
 
       <app-button [full]="true" type="submit" size="lg">
@@ -46,8 +46,8 @@
       </app-button>
 
       <div class="text-center text-light/70">
-        Don't have an account? 
-        <a routerLink="/register" class="text-primary hover:text-accent ml-1">Sign up</a>
+        Hala Hesabın Yok mu?
+        <a routerLink="/register" class="text-primary hover:text-accent ml-1">Hemen Kayıt Ol</a>
       </div>
     </form>
   </div>

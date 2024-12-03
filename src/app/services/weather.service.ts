@@ -21,41 +21,27 @@ interface WeatherResponse {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeatherService {
-  private readonly API_KEY = '89ac05589e51d95beb1532dbb808c03e';
+  private readonly API_KEY = '8b7987216c302daf037de6642cdb16a4'; // Replace with your OpenWeatherMap API key
   private readonly FALLBACK_LOCATION = {
     coords: {
-      latitude: 41.0082,
-      longitude: 28.9784
-    }
+      latitude: 41.045824, // Istanbul's latitude
+      longitude: 29.020456, // Istanbul's longitude
+    },
   };
+
+  constructor() {}
 
   getWeather(): Observable<WeatherData> {
     return from(this.getCurrentPosition()).pipe(
       timeout(5000),
-      catchError(() => of(this.FALLBACK_LOCATION)),
-      switchMap(position => {
+      catchError(() => of(this.FALLBACK_LOCATION)), // Use fallback location on error
+      switchMap((position) => {
         const { latitude, longitude } = position.coords;
-        return from(
-          fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${this.API_KEY}&units=metric`,
-            { 
-              method: 'GET',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              }
-            }
-          ).then(response => {
-            if (!response.ok) {
-              throw new Error('Weather API error');
-            }
-            return response.json();
-          })
-        ).pipe(
-          catchError(error => {
+        return from(this.fetchWeatherData(latitude, longitude)).pipe(
+          catchError((error) => {
             console.error('Weather API error:', error);
             return throwError(() => new Error('Unable to fetch weather data'));
           })
@@ -65,17 +51,34 @@ export class WeatherService {
         temperature: Math.round(data.main.temp),
         description: data.weather[0].description,
         icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
-        location: data.name
+        location: data.name,
       })),
-      catchError(error => {
+      catchError((error) => {
         console.error('Weather error:', error);
-        return throwError(() => 
-          error.message === 'User denied Geolocation' 
+        return throwError(() =>
+          error.message === 'User denied Geolocation'
             ? new Error('Please enable location services to see local weather')
             : new Error('Unable to fetch weather data')
         );
       })
     );
+  }
+
+  private fetchWeatherData(latitude: number, longitude: number): Promise<WeatherResponse> {
+    const url = `/weather-api/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${this.API_KEY}&units=metric`;
+
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error('Weather API error');
+      }
+      return response.json();
+    });
   }
 
   private getCurrentPosition(): Promise<GeolocationPosition> {
@@ -88,16 +91,16 @@ export class WeatherService {
       navigator.geolocation.getCurrentPosition(
         resolve,
         (error) => {
-          reject(new Error(
-            error.code === error.PERMISSION_DENIED 
+          const errorMessage =
+            error.code === error.PERMISSION_DENIED
               ? 'User denied Geolocation'
-              : 'Unable to get location'
-          ));
+              : 'Unable to get location';
+          reject(new Error(errorMessage));
         },
         {
           enableHighAccuracy: false,
           timeout: 5000,
-          maximumAge: 0
+          maximumAge: 0,
         }
       );
     });

@@ -6,7 +6,7 @@
 
       <!-- Desktop Navigation -->
       <div class="desktop-nav">
-        <a routerLink="/search" class="nav-link">Find Cars</a>
+        <a routerLink="/search" class="nav-link">Araba Bul</a>
         <ng-container *ngIf="authService.currentUser$ | async as user">
           <a routerLink="/account/host/create" class="nav-link">List Your Car</a>
           <div class="relative">
@@ -58,8 +58,8 @@
         </ng-container>
         
         <ng-container *ngIf="!(authService.currentUser$ | async)">
-          <a routerLink="/login" class="nav-link">Login</a>
-          <a routerLink="/register" class="btn btn-primary">Sign Up</a>
+          <a routerLink="/login" class="nav-link">Giriş Yap</a>
+          <a routerLink="/register" class="btn btn-primary">Kayıt Ol</a>
         </ng-container>
       </div>
 
