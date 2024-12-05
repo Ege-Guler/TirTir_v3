@@ -152,7 +152,7 @@ export class MapViewComponent implements OnInit, OnDestroy {
     return `
       <div class="p-4 max-w-xs">
         <div class="flex items-center gap-4">
-          <img src="${car.image}" alt="${car.make} ${car.model}" 
+          <img src="${car.images[0]}" alt="${car.make} ${car.model}" 
                class="w-20 h-20 object-cover rounded-lg">
           <div>
             <h3 class="font-bold text-lg">${car.year} ${car.make} ${car.model}</h3>

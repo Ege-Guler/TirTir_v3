@@ -5,15 +5,15 @@
       <div *ngIf="currentStep === 1" class="animate-fadeIn">
         <div class="step-header">
           <div>
-            <h1 class="step-title">Vehicle Details</h1>
-            <p class="step-subtitle">Tell us about your vehicle</p>
+            <h1 class="step-title">Araba Detayları</h1>
+            <p class="step-subtitle">Bize arabandan bahset.</p>
           </div>
         </div>
 
         <div class="form-group">
           <!-- Category -->
           <div>
-            <label class="form-label">Vehicle Type</label>
+            <label class="form-label">Araç Tipi</label>
             <select 
               [(ngModel)]="form.category"
               class="form-select">
@@ -169,8 +169,8 @@
         </div>
 
         <!-- Photo Grid -->
-        <div class="photos-grid" *ngIf="form.photos.length > 0">
-          <div *ngFor="let photo of form.photos; let i = index"
+        <div class="photos-grid" *ngIf="form.images.length > 0">
+          <div *ngFor="let photo of form.images; let i = index"
                class="photo-item">
             <img [src]="photo" 
                  alt="Vehicle photo" 
@@ -265,7 +265,7 @@
           [disabled]="!form.location.address"
           (click)="onSubmit()"
           class="btn btn-primary">
-          Submit Listing
+          Arabanı Listele
         </button>
       </div>
     </div>

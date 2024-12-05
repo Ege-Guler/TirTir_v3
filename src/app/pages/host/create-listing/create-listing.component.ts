@@ -3,25 +3,38 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../../../components/ui/button/button.component';
 import { CarService } from '../../../services/car.service';
+import { ListingService } from '../../../services/listing.service';
+import { Router } from '@angular/router';
+import { AuthService, User } from '../../../services/auth.service';
 import * as L from 'leaflet';
 
 interface ListingForm {
+  id: string;
   make: string;
   model: string;
   year: number;
   price: number;
   mileage: number;
-  transmission: 'automatic' | 'manual';
-  fuelType: 'diesel' | 'gasoline' | 'electric' | 'hybrid';
-  category: 'truck' | 'van' | 'pickup';
+  transmission: 'otomatik' | 'manuel';
+  fuelType: 'dizel' | 'benzin' | 'elektrik' | 'hibrit';
   seats: number;
-  features: string[];
-  photos: string[];
+
+  category: 'Otomobil' | 'SUV' | 'Ticari';
+  owner: {
+    uid: string
+    email: string;
+    phone: string;
+    displayName: string;
+  };
   location: {
     lat: number;
     lng: number;
     address: string;
   };
+  features: string[];
+  images: string[];
+
+
 }
 
 @Component({
@@ -44,21 +57,28 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
   maxYear = this.currentYear;
 
   form: ListingForm = {
+    id: '',
     make: '',
     model: '',
     year: this.currentYear,
     price: 0,
     mileage: 0,
-    transmission: 'automatic',
-    fuelType: 'diesel',
-    category: 'truck',
+    transmission: 'otomatik',
+    fuelType: 'dizel',
+    category: 'Otomobil',
     seats: 2,
     features: [],
-    photos: [],
+    images: [],
     location: {
       lat: 41.0082,
       lng: 28.9784,
       address: ''
+    },
+    owner: {
+      uid: '',
+      displayName: '',
+      email: '',
+      phone: ''
     }
   };
 
@@ -72,7 +92,7 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
   private darkLayer: L.TileLayer | null = null;
   private defaultLocation = { lat: 41.0082, lng: 28.9784 }; // Istanbul
 
-  constructor(private carService: CarService) {
+  constructor(private authService: AuthService, private router: Router, private listingService: ListingService, private carService: CarService) {
     this.availableFeatures = this.carService.getFeatures();
     this.categories = this.carService.getCategories();
     this.transmissionTypes = this.carService.getTransmissionTypes();
@@ -129,7 +149,7 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
         const reader = new FileReader();
         reader.onload = (e) => {
           if (e.target?.result) {
-            this.form.photos.push(e.target.result as string);
+            this.form.images.push(e.target.result as string);
           }
         };
         reader.readAsDataURL(file);
@@ -138,7 +158,7 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   removePhoto(index: number) {
-    this.form.photos.splice(index, 1);
+    this.form.images.splice(index, 1);
   }
 
   onDragOver(event: DragEvent) {
@@ -165,7 +185,7 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
           const reader = new FileReader();
           reader.onload = (e) => {
             if (e.target?.result) {
-              this.form.photos.push(e.target.result as string);
+              this.form.images.push(e.target.result as string);
             }
           };
           reader.readAsDataURL(file);
@@ -212,23 +232,26 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private async updateLocation(lat: number, lng: number) {
     try {
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA`
-      );
+      const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+      const response = await fetch(url);
       const data = await response.json();
-      
-      if (data.features?.length > 0) {
+  
+      if (data && data.display_name) {
         this.form.location = {
           lat,
           lng,
-          address: data.features[0].place_name
+          address: data.display_name // The full address returned by Nominatim
         };
+      } else {
+        this.form.location.address = ''; // Clear address if not found
+        console.error('Address not found in response:', data);
       }
     } catch (error) {
-      console.error('Geocoding error:', error);
+      console.error('Nominatim API error:', error);
       this.locationError = 'Could not get address for selected location';
     }
   }
+  
 
   private initMap() {
     if (this.map) {
@@ -293,8 +316,35 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
     }, 100);
   }
 
-  onSubmit() {
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', this.form);
+  async onSubmit() {
+    try {
+      const user: User | null = this.authService.getCurrentUser();
+  
+      if (!user) {
+        throw new Error('User is not authenticated.');
+      }
+  
+      // Add the owner details to the form
+      this.form.owner = {
+        uid: user.id,
+        email: user.email,
+        phone: user.phone,
+        displayName: `${user.firstName} ${user.lastName}`,
+      };
+  
+      // Save the listing
+      await this.listingService.addListing(this.form);
+  
+      // Show success message
+  
+      // Delay redirection to allow user to see the message
+      setTimeout(() => {
+        this.router.navigate(['/listings']); // Replace '/listings' with your desired route
+      }, 2000); // Redirect after 2 seconds
+    } catch (error) {
+      console.error('Error saving listing:', error);
+      alert('Failed to save the listing. Please try again.');
+    }
   }
+  
 }

@@ -8,7 +8,7 @@
       <div class="desktop-nav">
         <a routerLink="/search" class="nav-link">Araba Bul</a>
         <ng-container *ngIf="authService.currentUser$ | async as user">
-          <a routerLink="/account/host/create" class="nav-link">List Your Car</a>
+          <a routerLink="/account/host/create" class="nav-link">Arabanı Listele</a>
           <div class="relative">
             <button (click)="toggleAccountMenu()" class="user-button">
               <div class="user-avatar">

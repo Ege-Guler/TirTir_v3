@@ -1,6 +1,6 @@
 <div class="card" [class.compact]="compact">
   <div class="image-container">
-    <img [src]="car.image" 
+    <img [src]="car.images[0]" 
          [alt]="car.make + ' ' + car.model" 
          class="car-image">
     <div class="image-overlay"></div>
@@ -41,15 +41,15 @@
       <div class="owner-section">
         <div class="owner-info">
           <div class="owner-avatar">
-            <span class="owner-initial">{{ car.owner.name[0] }}</span>
+            <span class="owner-initial">{{ car.owner.displayName[0] }}</span>
           </div>
           <div class="owner-details">
-            <div class="owner-name">{{ car.owner.name }}</div>
+            <div class="owner-name">{{ car.owner.displayName }}</div>
             <div class="owner-rating">
               <svg xmlns="http://www.w3.org/2000/svg" class="rating-star" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
               </svg>
-              <span>{{ car.owner.rating }}/5.0</span>
+              <!-- ><span>{{ car.owner.rating }}/5.0</span> -->
             </div>
           </div>
         </div>

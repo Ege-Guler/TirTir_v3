@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 
 export interface User {
   id: string;
@@ -11,7 +13,7 @@ export interface User {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
@@ -20,41 +22,84 @@ export class AuthService {
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
   currentUser$ = this.currentUserSubject.asObservable();
 
-  constructor(private router: Router) {}
+  constructor(private auth: Auth, private firestore: Firestore, private router: Router) {}
 
-  login(email: string, password: string): void {
-    // Simulate login - replace with actual API call
-    const mockUser: User = {
-      id: '1',
-      firstName: 'John',
-      lastName: 'Doe',
-      email: email,
-      phone: '+90 532 123 4567'
-    };
+  // Login Method
+  async login(email: string, password: string): Promise<void> {
+    try {
+      const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
+      const firebaseUser = userCredential.user;
 
-    this.currentUserSubject.next(mockUser);
-    this.isAuthenticatedSubject.next(true);
-    this.router.navigate(['/account']);
+      // Retrieve user details from Firestore
+      const userDocRef = doc(this.firestore, `users/${firebaseUser.uid}`);
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        const user = userDoc.data() as User;
+        this.currentUserSubject.next(user);
+        this.isAuthenticatedSubject.next(true);
+        this.router.navigate(['/account']);
+      } else {
+        throw new Error('User data not found in Firestore');
+      }
+    } catch (error) {
+      const errorMessage = (error as Error).message || 'An unknown error occurred during login';
+      console.error('Login failed:', error);
+      alert('Login failed: ' + errorMessage);
+    }
   }
 
-  register(userData: any): void {
-    // Simulate registration - replace with actual API call
-    const mockUser: User = {
-      id: '1',
-      firstName: userData.firstName,
-      lastName: userData.lastName,
-      email: userData.email,
-      phone: userData.phone
-    };
+  // Register Method
+  async register(userData: { firstName: string; lastName: string; email: string; phone: string; password: string }): Promise<void> {
+    try {
+      // Create user with Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(this.auth, userData.email, userData.password);
+      const firebaseUser = userCredential.user;
 
-    this.currentUserSubject.next(mockUser);
-    this.isAuthenticatedSubject.next(true);
-    this.router.navigate(['/account']);
+      // Save user data to Firestore
+      const user: User = {
+        id: firebaseUser.uid,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: firebaseUser.email ?? '',
+        phone: userData.phone,
+      };
+
+      const userDocRef = doc(this.firestore, `users/${firebaseUser.uid}`);
+      await setDoc(userDocRef, user);
+
+      // Update current user state
+      this.currentUserSubject.next(user);
+      this.isAuthenticatedSubject.next(true);
+      this.router.navigate(['/account']);
+    } catch (error) {
+      const errorMessage = (error as Error).message || 'An unknown error occurred during registration';
+      console.error('Registration failed:', error);
+      alert('Registration failed: ' + errorMessage);
+    }
   }
 
-  logout(): void {
-    this.currentUserSubject.next(null);
-    this.isAuthenticatedSubject.next(false);
-    this.router.navigate(['/']);
+  // Logout Method
+  async logout(): Promise<void> {
+    try {
+      await this.auth.signOut();
+      this.currentUserSubject.next(null);
+      this.isAuthenticatedSubject.next(false);
+      this.router.navigate(['/']);
+    } catch (error) {
+      const errorMessage = (error as Error).message || 'An unknown error occurred during logout';
+      console.error('Logout failed:', error);
+      alert('Logout failed: ' + errorMessage);
+    }
+  }
+
+  // Get Current User
+  getCurrentUser(): User | null {
+    return this.currentUserSubject.value;
+  }
+
+  // Check Authentication Status
+  isAuthenticated(): boolean {
+    return this.isAuthenticatedSubject.value;
   }
 }

@@ -39,7 +39,7 @@
                  [class.hidden]="i >= featuredCars.length">
               <!-- Image container with overlay -->
               <div class="relative overflow-hidden">
-                <img [src]="featuredCars[i].image || ''" 
+                <img [src]="featuredCars[i].images[0] || ''" 
                      [alt]="(featuredCars[i].make || '') + ' ' + (featuredCars[i].model || '')"
                      class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
                 
