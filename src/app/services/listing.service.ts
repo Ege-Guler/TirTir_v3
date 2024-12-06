@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, getDocs, query, where,doc, setDoc, deleteDoc } from '@angular/fire/firestore';
+import { Firestore, collection, getDocs, query, where,doc, setDoc, deleteDoc, collectionGroup } from '@angular/fire/firestore';
 import { Auth } from '@angular/fire/auth';
 import { Car } from './car.service'; // Import the Car interface from CarService
-import { Observable, from } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +43,21 @@ export class ListingService {
           ...doc.data(),
         } as Car))
       )
+    );
+  }
+  getAllListings(): Observable<Car[]> {
+    const listingsQuery = collectionGroup(this.firestore, 'listings');
+
+    // Fetch and map Firestore documents to Car objects
+    return from(
+      getDocs(listingsQuery).then((snapshot) =>
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        } as Car))
+      )
+    ).pipe(
+      catchError(() => of([])) 
     );
   }
 

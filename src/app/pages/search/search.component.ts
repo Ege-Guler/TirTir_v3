@@ -8,6 +8,7 @@ import { SearchFiltersComponent } from '../../components/search-filters/search-f
 import { ButtonComponent } from '../../components/ui/button/button.component';
 import { LocationSearchComponent } from '../../components/location-search/location-search.component';
 import { Location } from '../../services/location.service';
+import { ListingService } from '../../services/listing.service';
 
 @Component({
   selector: 'app-search',
@@ -25,7 +26,6 @@ import { Location } from '../../services/location.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  cars: Car[] = [];
   viewMode: 'grid' | 'map' = 'map';
   isFiltersOpen = false;
   maxPrice = 200;
@@ -41,14 +41,28 @@ export class SearchComponent implements OnInit {
   selectedFeatures: string[] = [];
   tempFilters: any = {};
 
-  constructor(private carService: CarService) {}
+  constructor(private carService: CarService, private listingService: ListingService) {}
 
+  cars: Car[] = [];
+  isLoading = true;
   ngOnInit() {
-    this.carService.getCars().subscribe(cars => {
-      this.cars = cars;
-      this.makes = [...new Set(cars.map(car => car.make))].sort();
-    });
-    this.initTempFilters();
+    this.loadGlobalCars();
+    console.log(this.cars);
+  }
+
+  private loadGlobalCars() {
+    this.listingService.getAllListings().subscribe(
+      (cars) => {
+        this.cars = cars; // Assign the fetched cars
+      },
+      (error) => {
+        console.error('Error fetching global listings:', error);
+        this.cars = []; // Fallback in case of error
+      },
+      () => {
+        this.isLoading = false; // Stop loading indicator
+      }
+    );
   }
 
   
