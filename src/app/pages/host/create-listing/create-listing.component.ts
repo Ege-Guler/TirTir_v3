@@ -339,7 +339,7 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
   
       // Delay redirection to allow user to see the message
       setTimeout(() => {
-        this.router.navigate(['/listings']); // Replace '/listings' with your desired route
+        this.router.navigate(['/account/host']); // Replace '/listings' with your desired route
       }, 2000); // Redirect after 2 seconds
     } catch (error) {
       console.error('Error saving listing:', error);

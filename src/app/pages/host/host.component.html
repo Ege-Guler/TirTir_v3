@@ -1,37 +1,76 @@
-<div class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4">
-  <div class="container mx-auto max-w-4xl">
-    <div class="glass-card p-6 sm:p-8">
-      <h1 class="text-2xl sm:text-3xl font-bold text-light mb-6">Become a Host</h1>
-      
-      <div class="space-y-6">
-        <p class="text-light/80">Share your truck and earn extra income when you're not using it.</p>
+<div>
+  <!-- Display if user has no listings -->
+  <div *ngIf="!isLoading && cars.length === 0" class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4">
+    <div class="container mx-auto max-w-4xl">
+      <div class="glass-card p-6 sm:p-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-light mb-6">Become a Host</h1>
         
-        <div class="grid sm:grid-cols-3 gap-6">
-          <div class="glass-card p-4 text-center">
-            <div class="text-2xl font-bold text-primary mb-2">1</div>
-            <h3 class="font-semibold text-light mb-2">List Your Truck</h3>
-            <p class="text-sm text-light/70">Create your listing with photos and details</p>
-          </div>
+        <div class="space-y-6">
+          <p class="text-light/80">Share your truck and earn extra income when you're not using it.</p>
           
-          <div class="glass-card p-4 text-center">
-            <div class="text-2xl font-bold text-primary mb-2">2</div>
-            <h3 class="font-semibold text-light mb-2">Set Your Terms</h3>
-            <p class="text-sm text-light/70">Choose your availability and pricing</p>
+          <div class="grid sm:grid-cols-3 gap-6">
+            <div class="glass-card p-4 text-center">
+              <div class="text-2xl font-bold text-primary mb-2">1</div>
+              <h3 class="font-semibold text-light mb-2">List Your Truck</h3>
+              <p class="text-sm text-light/70">Create your listing with photos and details</p>
+            </div>
+            
+            <div class="glass-card p-4 text-center">
+              <div class="text-2xl font-bold text-primary mb-2">2</div>
+              <h3 class="font-semibold text-light mb-2">Set Your Terms</h3>
+              <p class="text-sm text-light/70">Choose your availability and pricing</p>
+            </div>
+            
+            <div class="glass-card p-4 text-center">
+              <div class="text-2xl font-bold text-primary mb-2">3</div>
+              <h3 class="font-semibold text-light mb-2">Start Earning</h3>
+              <p class="text-sm text-light/70">Accept bookings and earn money</p>
+            </div>
           </div>
-          
-          <div class="glass-card p-4 text-center">
-            <div class="text-2xl font-bold text-primary mb-2">3</div>
-            <h3 class="font-semibold text-light mb-2">Start Earning</h3>
-            <p class="text-sm text-light/70">Accept bookings and earn money</p>
-          </div>
-        </div>
 
-        <div class="flex justify-center mt-8">
-          <app-button size="lg" routerLink="/account/host/create">
-            Start Listing Your Truck
-          </app-button>
+          <div class="flex justify-center mt-8">
+            <app-button size="lg" routerLink="/account/host/create">
+              Start Listing Your Truck
+            </app-button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Display user listings -->
+  <div *ngIf="!isLoading && cars.length > 0">
+
+    <div class="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+
+    <h1 class="text-2xl font-bold text-center mb-6">Listelemelerim</h1>
+    
+    <div *ngIf="!isLoading && cars.length > 0">
+      
+      <ng-container>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Use *ngFor directly on the wrapper -->
+          <div *ngFor="let car of cars" class="relative group">
+            <!-- Car Card -->
+            <app-car-card [car]="car"></app-car-card>
+            
+            <!-- Delete Button -->
+            <button 
+              class="absolute top-2 left-2 bg-red-600 text-white p-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              (click)="onDeleteListing(car.id)">
+              Yayından Kaldır
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    </div>
+    
+  
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="flex justify-center items-center">
+    <span>Loading your listings...</span>
   </div>
 </div>
