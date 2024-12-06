@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { WeatherWidgetComponent } from '../../components/weather-widget/weather-widget.component';
 import { ButtonComponent } from '../../components/ui/button/button.component';
 import { CarService, Car } from '../../services/car.service';
+import { ListingService } from '../../services/listing.service';
+
 
 @Component({
   selector: 'app-home',
@@ -14,14 +16,29 @@ import { CarService, Car } from '../../services/car.service';
 })
 export class HomeComponent implements OnInit {
   featuredCars: Car[] = [];
+  isLoading = true;
+
   currentSlide = 0;
 
-  constructor(private carService: CarService) {}
+  constructor(private listingService: ListingService) {}
 
   ngOnInit() {
-    this.carService.getCars().subscribe(cars => {
-      this.featuredCars = cars;
-    });
+    this.loadGlobalCars();
+
+  }
+  private loadGlobalCars() {
+    this.listingService.getAllListings().subscribe(
+      (cars) => {
+        this.featuredCars = cars; // Assign the fetched cars
+      },
+      (error) => {
+        console.error('Error fetching global listings:', error);
+        this.featuredCars = []; // Fallback in case of error
+      },
+      () => {
+        this.isLoading = false; // Stop loading indicator
+      }
+    );
   }
 
   nextSlide() {

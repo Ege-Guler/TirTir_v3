@@ -41,13 +41,12 @@ export class SearchComponent implements OnInit {
   selectedFeatures: string[] = [];
   tempFilters: any = {};
 
-  constructor(private carService: CarService, private listingService: ListingService) {}
+  constructor(private listingService: ListingService) {}
 
   cars: Car[] = [];
   isLoading = true;
   ngOnInit() {
     this.loadGlobalCars();
-    console.log(this.cars);
   }
 
   private loadGlobalCars() {
