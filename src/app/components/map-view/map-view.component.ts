@@ -123,7 +123,7 @@ export class MapViewComponent implements OnInit, OnDestroy {
     // Custom car icon
     const carIcon = L.divIcon({
       className: 'custom-div-icon',
-      html: `<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">🚛</div>`,
+      html: `<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">🚘</div>`,
       iconSize: [32, 32],
       iconAnchor: [16, 16],
       popupAnchor: [0, -16]
