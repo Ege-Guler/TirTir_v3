@@ -3,22 +3,29 @@ service cloud.firestore {
   match /databases/{database}/documents {
     // User-specific access
     match /users/{userId} {
-      // Allow users to access their own data
+      // Allow users to access their own user document
       allow read, write: if request.auth != null && request.auth.uid == userId;
 
-      // Allow users to access their own listings
+      // Allow users to access and manage their own listings
       match /listings/{listingId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        // A user can read their own listings
+        allow read: if request.auth != null && request.auth.uid == userId;
+
+        // A user can write their own listings only if the owner.uid matches their UID
+        allow write: if request.auth != null 
+                     && request.auth.uid == userId 
+                     && request.resource.data.owner.uid == userId;
       }
     }
 
-    // Global access to all listings for authenticated users
+    // Global listings access (using collectionGroup queries)
     match /{path=**}/listings/{listingId} {
-      // Allow read access to all listings for authenticated users
+      // Any authenticated user can read all listings globally
       allow read: if request.auth != null;
 
-      // Write access restricted to the owner of the listing
-      allow write: if request.auth != null && request.resource.data.owner.uid == request.auth.uid;
+      // Write operations require that the authenticated user is the owner
+      allow write: if request.auth != null 
+                   && request.resource.data.owner.uid == request.auth.uid;
     }
   }
 }

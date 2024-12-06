@@ -1,0 +1,4 @@
+.glass-card {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.05] rounded-xl 
+           transition-all duration-300;
+  }

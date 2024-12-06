@@ -1,0 +1,86 @@
+<div class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4">
+    <div class="container mx-auto max-w-4xl">
+      <div class="glass-card p-6 sm:p-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-light mb-6">Book Your Vehicle</h1>
+  
+        <div *ngIf="car" class="space-y-6">
+          <!-- Car Details -->
+          <div class="flex items-start gap-4">
+            <img [src]="car.images[0]" 
+                 [alt]="car.make + ' ' + car.model"
+                 class="w-32 h-32 object-cover rounded-lg">
+            
+            <div>
+              <h2 class="text-xl font-bold text-light">
+                {{ car.year }} {{ car.make }} {{ car.model }}
+              </h2>
+              <p class="text-light/70 mt-1">{{ car.location.address }}</p>
+              <p class="text-primary font-semibold mt-2">${{ car.price }}/day</p>
+            </div>
+          </div>
+  
+          <!-- Booking Form -->
+          <form (ngSubmit)="onSubmit()" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Start Date -->
+              <div>
+                <label for="startDate" class="block text-sm font-medium text-light/90 mb-2">
+                  Start Date
+                </label>
+                <input 
+                  type="date" 
+                  id="startDate"
+                  [(ngModel)]="startDate"
+                  (ngModelChange)="onDateChange()"
+                  name="startDate"
+                  [min]="startDate"
+                  class="input-field"
+                  required>
+              </div>
+  
+              <!-- End Date -->
+              <div>
+                <label for="endDate" class="block text-sm font-medium text-light/90 mb-2">
+                  End Date
+                </label>
+                <input 
+                  type="date" 
+                  id="endDate"
+                  [(ngModel)]="endDate"
+                  (ngModelChange)="onDateChange()"
+                  name="endDate"
+                  [min]="startDate"
+                  class="input-field"
+                  required>
+              </div>
+            </div>
+  
+            <!-- Price Summary -->
+            <div class="mt-6 p-4 bg-white/5 rounded-xl space-y-2">
+              <div class="flex justify-between text-light/70">
+                <span>Daily Rate</span>
+                <span>${{ car.price }}</span>
+              </div>
+              <div class="flex justify-between text-light/70">
+                <span>Number of Days</span>
+                <span>{{ totalDays }}</span>
+              </div>
+              <div class="border-t border-white/10 pt-2 mt-2">
+                <div class="flex justify-between text-lg font-semibold text-light">
+                  <span>Total</span>
+                  <span>${{ totalPrice }}</span>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Submit Button -->
+            <div class="flex justify-end mt-6">
+              <app-button type="submit" [full]="true">
+                Confirm Booking
+              </app-button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

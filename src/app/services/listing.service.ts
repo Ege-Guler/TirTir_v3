@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, getDocs, query, where,doc, setDoc, deleteDoc, collectionGroup } from '@angular/fire/firestore';
+import { Firestore, collection, getDocs, query, where,doc, setDoc, deleteDoc, collectionGroup, getDoc } from '@angular/fire/firestore';
 import { Auth } from '@angular/fire/auth';
 import { Car } from './car.service'; // Import the Car interface from CarService
 import { Observable, from, of } from 'rxjs';
@@ -69,5 +69,27 @@ export class ListingService {
 
     const listingDocRef = doc(this.firestore, `users/${user.uid}/listings/${listingId}`);
     await deleteDoc(listingDocRef);
+  }
+  async getCarById(listingId: string): Promise<Car | null> {
+    const user = this.auth.currentUser;
+    if (!user) {
+      throw new Error('User not authenticated');
+    }
+  
+    const listingsQuery = query(
+      collectionGroup(this.firestore, 'listings'),
+      where('id', '==', listingId)
+    );
+  
+    const snapshot = await getDocs(listingsQuery);
+
+    if (snapshot.empty) {
+      console.log('Car does not exist');
+      return null; // No car with this listingId was found
+    }
+  
+    // Assuming listingId is unique, take the first matching document
+    const docSnap = snapshot.docs[0];
+    return { id: docSnap.id, ...docSnap.data() } as Car;
   }
 }

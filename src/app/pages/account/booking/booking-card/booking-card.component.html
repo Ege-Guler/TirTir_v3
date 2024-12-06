@@ -1,0 +1,61 @@
+<div class="glass-card p-4">
+    <div class="flex items-start gap-4">
+      <!-- Car Image -->
+      <img [src]="booking.car.images[0]" 
+           [alt]="booking.car.make + ' ' + booking.car.model"
+           class="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-lg">
+  
+      <!-- Booking Details -->
+      <div class="flex-1">
+        <h3 class="text-lg font-semibold text-light">
+          {{ booking.car.year }} {{ booking.car.make }} {{ booking.car.model }}
+        </h3>
+  
+        <!-- Booking Status -->
+        <div class="flex items-center gap-2 mt-1">
+          <span [class]="'px-2 py-1 rounded-full text-xs font-medium ' + 
+            (booking.status === 'active' ? 'bg-green-400/20 text-green-400' :
+             booking.status === 'upcoming' ? 'bg-blue-400/20 text-blue-400' :
+             booking.status === 'completed' ? 'bg-gray-400/20 text-gray-400' :
+             'bg-red-400/20 text-red-400')">
+            {{ booking.status | titlecase }}
+          </span>
+        </div>
+  
+        <!-- Dates -->
+        <div class="mt-2 text-sm text-light/70">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            {{ booking.startDate | date }} - {{ booking.endDate | date }}
+          </div>
+        </div>
+  
+        <!-- Location -->
+        <div class="mt-1 text-sm text-light/70">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            </svg>
+            {{ booking.car.location.address }}
+          </div>
+        </div>
+  
+        <!-- Price -->
+        <div class="mt-2 font-semibold text-primary">
+          ${{ booking.totalPrice }}
+        </div>
+      </div>
+    </div>
+  
+    <!-- Action Buttons -->
+    <div class="flex gap-2 mt-4">
+      <app-button variant="outline" [full]="true" *ngIf="booking.status === 'upcoming'">
+        Modify Booking
+      </app-button>
+      <app-button variant="outline" [full]="true" *ngIf="booking.status === 'active'">
+        Contact Host
+      </app-button>
+    </div>
+  </div>

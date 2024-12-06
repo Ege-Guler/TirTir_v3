@@ -23,6 +23,12 @@ export const routes: Routes = [
       import('./pages/auth/register.component').then(m => m.RegisterComponent)
   },
   {
+    path: 'book/:id',
+    canActivate: [AuthGuard],
+    loadComponent: () => 
+      import('./pages/book/book.component').then(m => m.BookComponent)
+  },
+  {
     path: 'account',
     canActivate: [AuthGuard],
     children: [
@@ -30,6 +36,11 @@ export const routes: Routes = [
         path: '',
         loadComponent: () => 
           import('./pages/account/account.component').then(m => m.AccountComponent)
+      },
+      {
+        path: 'booking',
+        loadComponent: () => 
+          import('./pages/account/booking/booking.component').then(m => m.BookingComponent)
       },
       {
         path: 'host',
