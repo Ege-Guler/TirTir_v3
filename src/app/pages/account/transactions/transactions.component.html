@@ -1,49 +1,46 @@
-<div class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4">
-  <div class="container mx-auto max-w-4xl">
-    <div class="glass-card p-6 sm:p-8">
-      <h1 class="text-2xl sm:text-3xl font-bold text-light mb-6">Transactions</h1>
+<div class="min-h-screen bg-gradient-to-b from-dark via-gray-800 to-secondary py-8">
+  <div class="container mx-auto max-w-5xl">
+    <div class="glass-card p-8 rounded-lg shadow-lg">
+      <h1 class="text-4xl font-bold text-light mb-8">Transaction History</h1>
 
-      <div class="space-y-4">
-        <!-- Transactions List -->
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead>
-              <tr class="text-left border-b border-white/10">
-                <th class="pb-3 text-light/70 font-medium">Date</th>
-                <th class="pb-3 text-light/70 font-medium">Description</th>
-                <th class="pb-3 text-light/70 font-medium">Amount</th>
-                <th class="pb-3 text-light/70 font-medium">Status</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-white/10">
-              <tr *ngFor="let transaction of transactions" class="hover:bg-white/5">
-                <td class="py-4 text-light">
-                  {{ transaction.date | date:'mediumDate' }}
-                </td>
-                <td class="py-4 text-light">
-                  {{ transaction.description }}
-                </td>
-                <td class="py-4" [class.text-green-400]="transaction.type === 'payout'"
-                    [class.text-red-400]="transaction.type === 'rental'">
-                  {{ transaction.type === 'payout' ? '+' : '-' }}${{ transaction.amount }}
-                </td>
-                <td class="py-4">
-                  <span [class]="'px-2 py-1 rounded-full text-xs font-medium ' + 
-                    (transaction.status === 'completed' ? 'bg-green-400/20 text-green-400' :
-                     transaction.status === 'pending' ? 'bg-yellow-400/20 text-yellow-400' :
-                     'bg-red-400/20 text-red-400')">
-                    {{ transaction.status }}
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <div *ngIf="transactions && transactions.length > 0" class="space-y-6">
+        <!-- Transaction Cards -->
+        <div *ngFor="let transaction of transactions" class="transaction-card bg-dark/80 p-6 rounded-lg shadow-md">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-light">
+              {{ transaction.carId || 'Unknown Car' }}
+            </h2>
+            <span 
+              class="px-3 py-1 text-sm rounded-full font-medium"
+              [ngClass]="{
+                'bg-green-500': transaction.totalAmount > 0,
+                'bg-red-500': transaction.totalAmount <= 0
+              }">
+              {{ transaction.totalAmount > 0 ? 'Income' : 'Expense' }}
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-4 text-light/80 text-sm">
+            <div>
+              <p><span class="font-medium text-light">Renter:</span> {{ transaction.renterId || 'N/A' }}</p>
+              <p><span class="font-medium text-light">Owner:</span> {{ transaction.ownerId || 'N/A' }}</p>
+            </div>
+            <div>
+              <p><span class="font-medium text-light">Start Date:</span> {{ transaction.startDate || 'N/A' }}</p>
+              <p><span class="font-medium text-light">End Date:</span> {{ transaction.endDate || 'N/A' }}</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p class="text-lg font-bold text-green-400">
+              Amount: ${{ transaction.totalAmount !== undefined ? transaction.totalAmount : 0 }}
+            </p>
+          </div>
         </div>
+      </div>
 
-        <!-- Empty State -->
-        <div *ngIf="transactions.length === 0" class="text-center py-8 text-light/70">
-          No transactions to display.
-        </div>
+      <!-- Empty State -->
+      <div *ngIf="!transactions || transactions.length === 0" class="text-center py-16 text-light/70">
+        <p class="text-lg font-medium">No transactions to display.</p>
+        <p class="text-sm">You have no recent activity recorded.</p>
       </div>
     </div>
   </div>

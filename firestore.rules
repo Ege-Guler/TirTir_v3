@@ -45,5 +45,26 @@ service cloud.firestore {
       allow delete: if request.auth != null 
                     && request.auth.uid == request.resource.data.owner.uid;
     }
+
+    // Global bookings access (using collectionGroup queries)
+    match /{path=**}/bookings/{bookingId} {
+      // Allow any authenticated user to read all bookings globally
+      allow read: if request.auth != null;
+    }
+
+    // Rule to allow any user to create bookings for any car
+    match /users/{userId}/bookings/{bookingId} {
+      // Allow any authenticated user to create a booking
+      allow write: if request.auth != null;
+    }
+
+    // New rule for the transactions collection
+    match /{path=**}/transactions/{transactionId} {
+      // Allow any authenticated user to write to the transactions collection
+      allow write: if request.auth != null;
+
+      // Allow any authenticated user to read transactions
+      allow read: if request.auth != null;
+    }
   }
 }
