@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BookingService, Booking } from '../../../services/booking.service';
 import { BookingCardComponent } from './booking-card/booking-card.component';
 
-type TabType = 'all' | 'active' | 'upcoming' | 'completed' | 'cancelled';
+type TabType = 'all' | 'active' | 'upcoming' | 'completed';
 
 @Component({
   selector: 'app-bookings',
@@ -15,7 +15,7 @@ type TabType = 'all' | 'active' | 'upcoming' | 'completed' | 'cancelled';
 export class BookingComponent implements OnInit {
   bookings: Booking[] = [];
   activeTab: TabType = 'all';
-  tabs: TabType[] = ['all', 'active', 'upcoming', 'completed', 'cancelled'];
+  tabs: TabType[] = ['all', 'active', 'upcoming', 'completed'];
 
   constructor(private bookingService: BookingService) {}
 

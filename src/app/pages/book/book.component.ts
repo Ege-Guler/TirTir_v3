@@ -27,7 +27,6 @@ export class BookComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private carService: CarService,
     private bookingService: BookingService,
     private dateService: DateService,
     private priceCalculator: PriceCalculatorService,
@@ -68,9 +67,10 @@ export class BookComponent implements OnInit {
         endDate: this.endDate,
         totalPrice: this.totalPrice,
         status: 'active'
-      }).subscribe(() => {
-        this.router.navigate(['/account/booking']);
       });
+      setTimeout(() => {
+        this.router.navigate(['/account/booking']); 
+      }, 2000);
     }
   }
 }
