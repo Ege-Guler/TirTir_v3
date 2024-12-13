@@ -18,7 +18,7 @@
              booking.status === 'upcoming' ? 'bg-blue-400/20 text-blue-400' :
              booking.status === 'completed' ? 'bg-gray-400/20 text-gray-400' :
              'bg-red-400/20 text-red-400')">
-            {{ booking.status | titlecase }}
+            {{ booking.status | translate | titlecase }}
           </span>
         </div>
   

@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookingService, Booking } from '../../../services/booking.service';
 import { BookingCardComponent } from './booking-card/booking-card.component';
-
+import { SharedModule } from '../../../shared/shared.module';
 type TabType = 'all' | 'active' | 'upcoming' | 'completed';
 
 @Component({
   selector: 'app-bookings',
   standalone: true,
-  imports: [CommonModule, BookingCardComponent],
+  imports: [CommonModule, BookingCardComponent, SharedModule],
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
