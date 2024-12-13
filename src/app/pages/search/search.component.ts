@@ -26,7 +26,7 @@ import { ListingService } from '../../services/listing.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  viewMode: 'grid' | 'map' = 'map';
+  viewMode: 'grid' | 'map' = 'grid';
   isFiltersOpen = false;
   maxPrice = 200;
   selectedMake = '';
