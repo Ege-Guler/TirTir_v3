@@ -25,7 +25,7 @@
 
           <!-- Make -->
           <div>
-            <label class="form-label">Make</label>
+            <label class="form-label">Marka</label>
             <input 
               type="text" 
               [(ngModel)]="form.make"
@@ -45,7 +45,7 @@
 
           <!-- Year -->
           <div>
-            <label class="form-label">Year</label>
+            <label class="form-label">Yıl</label>
             <input 
               type="number" 
               [(ngModel)]="form.year"
@@ -54,7 +54,7 @@
               min="1990">
           </div>
           <div>
-            <label class="form-label">Price</label>
+            <label class="form-label">Fiyat</label>
             <input 
               type="number" 
               [(ngModel)]="form.price"
@@ -67,15 +67,15 @@
       <div *ngIf="currentStep === 2" class="animate-fadeIn">
         <div class="step-header">
           <div>
-            <h1 class="step-title">Technical Details</h1>
-            <p class="step-subtitle">Provide technical information about your vehicle</p>
+            <h1 class="step-title">Teknik Detaylar</h1>
+            <p class="step-subtitle">Aracınız hakkında teknik detaylar</p>
           </div>
         </div>
 
         <div class="form-group">
           <!-- Transmission -->
           <div>
-            <label class="form-label">Transmission</label>
+            <label class="form-label">Vites</label>
             <select 
               [(ngModel)]="form.transmission"
               class="form-select">
@@ -87,7 +87,7 @@
 
           <!-- Fuel Type -->
           <div>
-            <label class="form-label">Fuel Type</label>
+            <label class="form-label">Yakıt tipi</label>
             <select 
               [(ngModel)]="form.fuelType"
               class="form-select">
@@ -99,7 +99,7 @@
 
           <!-- Mileage -->
           <div>
-            <label class="form-label">Mileage (km)</label>
+            <label class="form-label">Kilometre</label>
             <input 
               type="number" 
               [(ngModel)]="form.mileage"
@@ -113,8 +113,8 @@
       <div *ngIf="currentStep === 3" class="animate-fadeIn">
         <div class="step-header">
           <div>
-            <h1 class="step-title">Vehicle Features</h1>
-            <p class="step-subtitle">Select all features that your vehicle has</p>
+            <h1 class="step-title">Araç Özellikleri</h1>
+            <p class="step-subtitle">Aracınızda olan özellikleri seçin</p>
           </div>
         </div>
 
@@ -138,8 +138,8 @@
       <div *ngIf="currentStep === 4" class="animate-fadeIn">
         <div class="step-header">
           <div>
-            <h1 class="step-title">Vehicle Photos</h1>
-            <p class="step-subtitle">Add photos of your vehicle</p>
+            <h1 class="step-title">Araç Fotoğrafları</h1>
+            <p class="step-subtitle">Aracınızın fotoğrafını ekleyin</p>
           </div>
         </div>
 
@@ -167,10 +167,10 @@
                     stroke-width="2" 
                     d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <p class="text-light/70 mb-2">Drag and drop photos here</p>
+            <p class="text-light/70 mb-2">Fotoğrafları buraya sürükleyiniz</p>
             <button (click)="fileInput.click()"
                     class="text-primary hover:text-accent">
-              or click to upload
+              ya da burdan yükleyiniz
             </button>
           </div>
         </div>
@@ -203,8 +203,8 @@
       <div *ngIf="currentStep === 5" class="animate-fadeIn">
         <div class="step-header">
           <div>
-            <h1 class="step-title">Vehicle Location</h1>
-            <p class="step-subtitle">Where is your vehicle located?</p>
+            <h1 class="step-title">Araç Lokasyonu</h1>
+            <p class="step-subtitle">Aracınızın bulunduğu yer</p>
           </div>
         </div>
 

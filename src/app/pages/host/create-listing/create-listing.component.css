@@ -47,11 +47,12 @@
 
 /* Features Grid */
 .features-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3;
+  @apply grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center;
 }
 
 .feature-item {
-  @apply relative aspect-square rounded-xl overflow-hidden;
+  @apply relative w-36 h-36
+   aspect-square rounded-xl overflow-hidden ;
 }
 
 .feature-content {
