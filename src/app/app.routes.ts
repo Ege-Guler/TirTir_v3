@@ -61,6 +61,11 @@ export const routes: Routes = [
         path: 'billing',
         loadComponent: () => 
           import('./pages/account/billing/billing.component').then(m => m.BillingComponent)
+      },
+      {
+        path: 'billing/add-new',
+        loadComponent: () => 
+          import('./pages/account/billing/add-new-payment/add-new-payment.component').then(m => m.AddNewPaymentComponent)
       }
     ]
   }

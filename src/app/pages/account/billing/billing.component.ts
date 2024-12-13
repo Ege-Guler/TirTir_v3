@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../components/ui/button/button.component';
+import { Router } from '@angular/router';
 
 interface PaymentMethod {
   id: string;
@@ -32,6 +33,11 @@ export class BillingComponent {
       isDefault: false
     }
   ];
+  constructor(private router: Router) {}
+
+  navigateToAddNew() {
+    this.router.navigate(['/account/billing/add-new']);
+  }
 
   removePaymentMethod(id: string) {
     this.paymentMethods = this.paymentMethods.filter(pm => pm.id !== id);
