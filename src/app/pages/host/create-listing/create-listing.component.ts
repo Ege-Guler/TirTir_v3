@@ -128,7 +128,7 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
     if (this.currentStep < this.totalSteps) {
       // Check if "Park Alanı" is selected and the current step is 1
       if (this.form.category === 'Park Alanı' && this.currentStep === 1) {
-        this.currentStep = 5; // Skip directly to the map step
+        this.currentStep = 4; // Skip directly to the map step
         setTimeout(() => this.initMap(), 0); // Initialize the map
       } else {
         this.currentStep++; // Proceed to the next step normally
