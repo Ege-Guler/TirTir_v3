@@ -54,6 +54,44 @@
               </div>
             </div>
           </div>
+
+          <!-- Image Upload Section -->
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold text-light">Ehliyet Doğrula</h2>
+            <div class="p-4 bg-white/5 rounded-xl">
+              <!-- File Input -->
+              <input type="file" (change)="onFileSelected($event)" accept="image/*"
+                class="block w-full text-sm text-light file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark" />
+
+              <!-- Action Button -->
+              <button class="mt-4 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition"
+                [disabled]="processing" (click)="processImage()">
+                {{ processing ? 'İşleniyor...' : 'Doğrula' }}
+              </button>
+
+              <!-- Success Message -->
+              <div *ngIf="uploadSuccess" class="mt-4 p-4 bg-green-600 text-white rounded-lg">
+                <strong>Başarılı:</strong> Görüntü başarıyla yüklendi ve işleniyor!
+              </div>
+
+              <!-- Error Message -->
+              <div *ngIf="uploadError" class="mt-4 p-4 bg-red-600 text-white rounded-lg">
+                <strong>Hata:</strong> Görüntü yüklenemedi, lütfen tekrar deneyin.
+              </div>
+
+              <!-- Processing Status -->
+              <div *ngIf="processing" class="mt-4 p-4 bg-yellow-600 text-white rounded-lg">
+                <strong>İşleniyor:</strong> Görsel işleniyor, lütfen bekleyin...
+              </div>
+
+              <!-- OCR Results -->
+              <div *ngIf="!processing && imageResult" class="mt-4 p-4 bg-blue-600 text-white rounded-lg">
+                <strong>Sonuç:</strong>
+                <p>{{ imageResult }}</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </ng-container>
     </div>

@@ -1,0 +1,720 @@
+[debug] [2024-12-15T21:04:33.386Z] ----------------------------------------------------------------------
+[debug] [2024-12-15T21:04:33.388Z] Command:       /snap/node/8863/bin/node /usr/local/bin/firebase emulators:start --only functions
+[debug] [2024-12-15T21:04:33.389Z] CLI Version:   13.27.0
+[debug] [2024-12-15T21:04:33.389Z] Platform:      linux
+[debug] [2024-12-15T21:04:33.389Z] Node Version:  v18.20.4
+[debug] [2024-12-15T21:04:33.389Z] Time:          Mon Dec 16 2024 00:04:33 GMT+0300 (GMT+03:00)
+[debug] [2024-12-15T21:04:33.390Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-15T21:04:33.449Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-15T21:04:33.450Z] > authorizing via signed-in user (egeguler2003@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2024-12-15T21:04:33.457Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-12-15T21:04:33.458Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-12-15T21:04:33.460Z] [hub] writing locator at /tmp/hub-tirtir-61.json
+[debug] [2024-12-15T21:04:33.472Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-12-15T21:04:33.473Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-12-15T21:04:33.473Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-12-15T21:04:33.473Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-12-15T21:04:33.474Z] defaultcredentials: writing to file /home/ege/.config/firebase/egeguler2003_gmail_com_application_default_credentials.json
+[debug] [2024-12-15T21:04:33.475Z] Setting GAC to /home/ege/.config/firebase/egeguler2003_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /home/ege/.config/firebase/egeguler2003_gmail_com_application_default_credentials.json"}}
+[debug] [2024-12-15T21:04:33.475Z] Checked if tokens are valid: true, expires at: 1734298954309
+[debug] [2024-12-15T21:04:33.476Z] Checked if tokens are valid: true, expires at: 1734298954309
+[debug] [2024-12-15T21:04:33.476Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tirtir-61/adminSdkConfig [none]
+[debug] [2024-12-15T21:04:33.973Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tirtir-61/adminSdkConfig 200
+[debug] [2024-12-15T21:04:33.973Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tirtir-61/adminSdkConfig {"projectId":"tirtir-61","databaseURL":"https://tirtir-61-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"tirtir-61.firebasestorage.app"}
+[info] i  functions: Watching "/home/ege/Desktop/TirTir_v3/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/home/ege/Desktop/TirTir_v3/functions\" for Cloud Functions..."}}
+[debug] [2024-12-15T21:04:34.000Z] Validating nodejs source
+[debug] [2024-12-15T21:04:34.600Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:04:34.601Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:04:34.601Z] Building nodejs source
+[debug] [2024-12-15T21:04:34.602Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:04:34.604Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:04:34.606Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:04:34.994Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:04:35.013Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED 127.0.0.1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-12-15T21:04:55.495Z] File /home/ege/Desktop/TirTir_v3/functions/package.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/package.json changed, reloading triggers"}}
+[debug] [2024-12-15T21:04:55.640Z] File /home/ege/Desktop/TirTir_v3/functions/package-lock.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/package-lock.json changed, reloading triggers"}}
+[debug] [2024-12-15T21:04:56.641Z] Validating nodejs source
+[debug] [2024-12-15T21:04:57.377Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:04:57.378Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:04:57.378Z] Building nodejs source
+[debug] [2024-12-15T21:04:57.378Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:04:57.379Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:04:57.380Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:04:57.629Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:05:17.265Z] File /home/ege/Desktop/TirTir_v3/functions/package.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/package.json changed, reloading triggers"}}
+[debug] [2024-12-15T21:05:17.432Z] File /home/ege/Desktop/TirTir_v3/functions/package-lock.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/package-lock.json changed, reloading triggers"}}
+[debug] [2024-12-15T21:05:18.433Z] Validating nodejs source
+[debug] [2024-12-15T21:05:19.118Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:05:19.118Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:05:19.119Z] Building nodejs source
+[debug] [2024-12-15T21:05:19.119Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:05:19.120Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:05:19.122Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:05:19.358Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:06:35.453Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:06:36.454Z] Validating nodejs source
+[debug] [2024-12-15T21:06:36.961Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:06:36.961Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:06:36.961Z] Building nodejs source
+[debug] [2024-12-15T21:06:36.961Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:06:36.962Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:06:36.963Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:06:37.209Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:09:28.258Z] File /home/ege/Desktop/TirTir_v3/functions/package-lock.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/package-lock.json changed, reloading triggers"}}
+[debug] [2024-12-15T21:09:29.259Z] Validating nodejs source
+[debug] [2024-12-15T21:09:29.765Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:09:29.765Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:09:29.765Z] Building nodejs source
+[debug] [2024-12-15T21:09:29.765Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:09:29.766Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:09:29.766Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:09:30.023Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:09:39.297Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:09:40.298Z] Validating nodejs source
+[debug] [2024-12-15T21:09:40.919Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:09:40.919Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:09:40.919Z] Building nodejs source
+[debug] [2024-12-15T21:09:40.920Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:09:40.921Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:09:40.922Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:09:41.182Z] Got response from /__/functions.yaml {"endpoints":{"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: processImage."}}
+[info] ✔  functions[us-central1-processImage]: http function initialized (http://127.0.0.1:5001/tirtir-61/us-central1/processImage). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/tirtir-61/us-central1/processImage)."}}
+[debug] [2024-12-15T21:10:01.802Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:10:02.803Z] Validating nodejs source
+[debug] [2024-12-15T21:10:03.809Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:10:03.809Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:10:03.809Z] Building nodejs source
+[debug] [2024-12-15T21:10:03.809Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:10:03.810Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:10:03.811Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:10:04.074Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:10:26.082Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:10:27.082Z] Validating nodejs source
+[debug] [2024-12-15T21:10:28.124Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:10:28.124Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:10:28.124Z] Building nodejs source
+[debug] [2024-12-15T21:10:28.124Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:10:28.125Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:10:28.126Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:10:28.388Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:10:34.281Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:10:35.283Z] Validating nodejs source
+[debug] [2024-12-15T21:10:35.880Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:10:35.880Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:10:35.880Z] Building nodejs source
+[debug] [2024-12-15T21:10:35.880Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:10:35.881Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:10:35.882Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:10:36.126Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:10:50.554Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:10:51.553Z] Validating nodejs source
+[debug] [2024-12-15T21:10:52.060Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:10:52.061Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:10:52.061Z] Building nodejs source
+[debug] [2024-12-15T21:10:52.061Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:10:52.061Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:10:52.062Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:10:52.309Z] Got response code 400; body Failed to generate manifest from function source: Error: Could not load the "sharp" module using the linux-x64 runtime
+ERR_DLOPEN_FAILED: /snap/core20/current/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /lib/x86_64-linux-gnu/libresolv.so.2)
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Remove the Node.js Snap, which does not support native modules
+    snap remove node
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:11:07.997Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:11:08.998Z] Validating nodejs source
+[debug] [2024-12-15T21:11:09.820Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:11:09.821Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:11:09.821Z] Building nodejs source
+[debug] [2024-12-15T21:11:09.821Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:11:09.823Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:11:09.824Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:11:10.096Z] Got response from /__/functions.yaml {"endpoints":{"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: processImage."}}
+[debug] [2024-12-15T21:11:26.756Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:11:27.758Z] Validating nodejs source
+[debug] [2024-12-15T21:11:28.310Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:11:28.310Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:11:28.310Z] Building nodejs source
+[debug] [2024-12-15T21:11:28.311Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:11:28.311Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:11:28.312Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:11:28.431Z] Got response code 400; body Failed to generate manifest from function source: SyntaxError: Identifier 'functions' has already been declared
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-12-15T21:11:33.733Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:11:34.734Z] Validating nodejs source
+[debug] [2024-12-15T21:11:35.230Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:11:35.231Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:11:35.231Z] Building nodejs source
+[debug] [2024-12-15T21:11:35.231Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:11:35.232Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:11:35.232Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:11:35.466Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[info] ✔  functions[us-central1-getWeather]: http function initialized (http://127.0.0.1:5001/tirtir-61/us-central1/getWeather). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/tirtir-61/us-central1/getWeather)."}}
+[debug] [2024-12-15T21:11:50.059Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:11:51.059Z] Validating nodejs source
+[debug] [2024-12-15T21:11:51.660Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:11:51.661Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:11:51.661Z] Building nodejs source
+[debug] [2024-12-15T21:11:51.661Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:11:51.662Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:11:51.662Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:11:51.948Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:11:56.013Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:11:57.014Z] Validating nodejs source
+[debug] [2024-12-15T21:11:57.663Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:11:57.663Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:11:57.664Z] Building nodejs source
+[debug] [2024-12-15T21:11:57.664Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:11:57.664Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:11:57.665Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:11:57.898Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}

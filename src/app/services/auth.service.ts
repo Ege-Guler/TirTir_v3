@@ -11,6 +11,7 @@ export interface User {
   email: string;
   phone: string;
   lastLogin: [Date, Date];
+  isVerified?: boolean;
 }
 
 @Injectable({
@@ -76,6 +77,7 @@ export class AuthService {
         email: firebaseUser.email ?? '',
         phone: userData.phone,
         lastLogin: [now, now], // Init both indexes with reg date
+        isVerified: false
       };
 
       const userDocRef = doc(this.firestore, `users/${firebaseUser.uid}`);

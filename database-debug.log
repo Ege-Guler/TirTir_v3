@@ -1,0 +1,8 @@
+23:43:05.027 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+23:43:05.138 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+23:43:20.841 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - tirtir-61-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 78ms, init: 0ms
+23:43:20.918 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace tirtir-61-default-rtdb status Active to Active
+23:43:42.350 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+23:43:42.354 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: tirtir-61-default-rtdb
+23:43:42.360 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for tirtir-61-default-rtdb
+23:43:42.364 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.

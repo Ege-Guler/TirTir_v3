@@ -27,8 +27,13 @@
     "@types/leaflet": "^1.9.8",
     "cors": "^2.8.5",
     "firebase": "^11.0.2",
+    "firebase-admin": "^13.0.1",
+    "firebase-functions": "^6.1.2",
     "leaflet": "^1.9.4",
+    "node-fetch": "^3.3.2",
     "rxjs": "^7.8.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1",
     "tslib": "^2.5.0",
     "zone.js": "~0.14.0"
   },
