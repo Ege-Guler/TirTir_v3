@@ -116,29 +116,33 @@ export class MapViewComponent implements OnInit, OnDestroy {
     // Clear existing markers
     this.markers.forEach(marker => marker.remove());
     this.markers = [];
-
+  
     // Create bounds to fit all markers
     const bounds = L.latLngBounds([]);
-
-    // Custom car icon
-    const carIcon = L.divIcon({
-      className: 'custom-div-icon',
-      html: `<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">🚘</div>`,
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
-      popupAnchor: [0, -16]
-    });
-
+  
     this.cars.forEach(car => {
+      // Custom icon based on category
+      const isParkingLot = car.category === 'Park Alanı'; // Assuming `category` is a property in `Car`
+      const carIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: isParkingLot
+          ? `<div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">🅿️</div>` // Parking emoji
+          : `<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">🚘</div>`, // Car emoji
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -16]
+      });
+  
+      // Add marker with the correct icon
       const marker = L.marker([car.location.lat, car.location.lng], { icon: carIcon })
         .bindPopup(this.createPopupContent(car))
         .on('click', () => this.onMarkerClick(car))
         .addTo(this.map);
-
+  
       this.markers.push(marker);
       bounds.extend([car.location.lat, car.location.lng]);
     });
-
+  
     // Fit bounds if we have markers
     if (this.markers.length > 0) {
       this.map.fitBounds(bounds, {

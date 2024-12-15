@@ -12,7 +12,7 @@ export interface Car {
   transmission: 'otomatik' | 'manuel';
   fuelType: 'dizel' | 'benzin' | 'elektrik' | 'hibrit';
   seats: number;
-  category: 'Otomobil' | 'SUV' | 'Ticari';
+  category: 'Otomobil' | 'SUV' | 'Ticari' | 'Park Alanı';
   owner: {
     uid: string
     email: string;
@@ -168,7 +168,7 @@ export class CarService {
   }
 
   getCategories(): string[] {
-    return ['Otomobil', 'SUV', 'Ticari'];
+    return ['Otomobil', 'SUV', 'Ticari', 'Park Alanı'];
   }
 
   getTransmissionTypes(): string[] {

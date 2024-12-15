@@ -1,0 +1,10 @@
+.auth-input {
+    @apply w-full px-4 py-3 rounded-lg bg-dark/50 border border-gray-600 text-light
+           focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors;
+  }
+  
+  :host {
+    @apply block;
+    min-height: calc(100vh - 64px);
+  }
+  

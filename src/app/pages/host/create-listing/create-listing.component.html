@@ -16,42 +16,44 @@
             <label class="form-label">Araç Tipi</label>
             <select 
               [(ngModel)]="form.category"
+              (change)="onCategoryChange()"
               class="form-select">
               <option *ngFor="let category of categories" [value]="category">
                 {{ category | titlecase }}
               </option>
             </select>
           </div>
+          <div *ngIf="form.category !== 'Park Alanı'">
+            <!-- Make -->
+            <div>
+              <label class="form-label">Marka</label>
+              <input 
+                type="text" 
+                [(ngModel)]="form.make"
+                class="form-input"
+                placeholder="örn. Ford, Mercedes-Benz">
+            </div>
 
-          <!-- Make -->
-          <div>
-            <label class="form-label">Marka</label>
-            <input 
-              type="text" 
-              [(ngModel)]="form.make"
-              class="form-input"
-              placeholder="örn. Ford, Mercedes-Benz">
-          </div>
+            <!-- Model -->
+            <div>
+              <label class="form-label">Model</label>
+              <input 
+                type="text" 
+                [(ngModel)]="form.model"
+                class="form-input"
+                placeholder="örn. F-150, Actros">
+            </div>
 
-          <!-- Model -->
-          <div>
-            <label class="form-label">Model</label>
-            <input 
-              type="text" 
-              [(ngModel)]="form.model"
-              class="form-input"
-              placeholder="örn. F-150, Actros">
-          </div>
-
-          <!-- Year -->
-          <div>
-            <label class="form-label">Yıl</label>
-            <input 
-              type="number" 
-              [(ngModel)]="form.year"
-              class="form-input"
-              [max]="maxYear"
-              min="1990">
+            <!-- Year -->
+            <div>
+              <label class="form-label">Yıl</label>
+              <input 
+                type="number" 
+                [(ngModel)]="form.year"
+                class="form-input"
+                [max]="maxYear"
+                min="1990">
+            </div>
           </div>
           <div>
             <label class="form-label">Fiyat</label>

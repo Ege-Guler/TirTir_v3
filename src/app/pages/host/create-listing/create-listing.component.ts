@@ -19,7 +19,7 @@ interface ListingForm {
   fuelType: 'dizel' | 'benzin' | 'elektrik' | 'hibrit';
   seats: number;
 
-  category: 'Otomobil' | 'SUV' | 'Ticari';
+  category: 'Otomobil' | 'SUV' | 'Ticari' | 'Park Alanı';
   owner: {
     uid: string
     email: string;
@@ -99,6 +99,12 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
     this.fuelTypes = this.carService.getFuelTypes();
   }
 
+  isParkingLotSelected = false;
+
+  onCategoryChange() {
+    this.isParkingLotSelected = this.form.category === 'Park Alanı';
+  }
+
   ngOnInit() {
     // Initialize form with default values
   }
@@ -120,9 +126,15 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
 
   nextStep() {
     if (this.currentStep < this.totalSteps) {
-      this.currentStep++;
-      if (this.currentStep === 5) {
-        setTimeout(() => this.initMap(), 0);
+      // Check if "Park Alanı" is selected and the current step is 1
+      if (this.form.category === 'Park Alanı' && this.currentStep === 1) {
+        this.currentStep = 4; // Skip directly to the map step
+        setTimeout(() => this.initMap(), 0); // Initialize the map
+      } else {
+        this.currentStep++; // Proceed to the next step normally
+        if (this.currentStep === 5) {
+          setTimeout(() => this.initMap(), 0); // Initialize the map when reaching step 5
+        }
       }
     }
   }
