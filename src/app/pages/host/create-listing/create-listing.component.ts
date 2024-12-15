@@ -140,8 +140,13 @@ export class CreateListingComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   previousStep() {
-    if (this.currentStep > 1) {
-      this.currentStep--;
+    if (this.form.category === 'Park Alanı' && this.currentStep === 4) {
+      this.currentStep = 1; // Skip directly to the map step
+    }
+    else{
+      if (this.currentStep > 1) {
+        this.currentStep--;
+      }
     }
   }
 
