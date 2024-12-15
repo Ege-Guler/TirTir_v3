@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListingService } from '../../services/listing.service';
-import { AuthService } from '../../services/auth.service';
-import { Car } from '../../services/car.service';
+import { ListingService } from '../../../services/listing.service';
+import { AuthService } from '../../../services/auth.service';
+import { Car } from '../../../services/car.service';
 import { Router } from '@angular/router';
 
 @Component({
