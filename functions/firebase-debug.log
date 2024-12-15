@@ -718,3 +718,763 @@ Possible solutions:
 [debug] [2024-12-15T21:11:57.665Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
 [debug] [2024-12-15T21:11:57.898Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
 [info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:30:24.655Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:30:25.655Z] Validating nodejs source
+[debug] [2024-12-15T21:30:26.359Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:30:26.360Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:30:26.360Z] Building nodejs source
+[debug] [2024-12-15T21:30:26.360Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:30:26.361Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:30:26.362Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:30:26.835Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:37:31.131Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:37:32.132Z] Validating nodejs source
+[debug] [2024-12-15T21:37:33.008Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:37:33.008Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:37:33.008Z] Building nodejs source
+[debug] [2024-12-15T21:37:33.008Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:37:33.009Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:37:33.010Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:37:33.272Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:37:43.637Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:37:44.637Z] Validating nodejs source
+[debug] [2024-12-15T21:37:45.240Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:37:45.240Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:37:45.240Z] Building nodejs source
+[debug] [2024-12-15T21:37:45.240Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:37:45.241Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:37:45.241Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:37:45.481Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:37:53.451Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:37:54.451Z] Validating nodejs source
+[debug] [2024-12-15T21:37:55.078Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:37:55.078Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:37:55.079Z] Building nodejs source
+[debug] [2024-12-15T21:37:55.079Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:37:55.079Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:37:55.080Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:37:55.407Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:38:42.955Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:38:43.955Z] Validating nodejs source
+[debug] [2024-12-15T21:38:44.515Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:38:44.516Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:38:44.516Z] Building nodejs source
+[debug] [2024-12-15T21:38:44.516Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:38:44.517Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:38:44.518Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:38:44.810Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:38:57.831Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:38:58.833Z] Validating nodejs source
+[debug] [2024-12-15T21:38:59.402Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:38:59.402Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:38:59.402Z] Building nodejs source
+[debug] [2024-12-15T21:38:59.402Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:38:59.403Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:38:59.404Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:38:59.687Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:39:17.969Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:39:18.970Z] Validating nodejs source
+[debug] [2024-12-15T21:39:19.559Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:39:19.560Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:39:19.560Z] Building nodejs source
+[debug] [2024-12-15T21:39:19.560Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:39:19.561Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:39:19.562Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:39:19.861Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:47:08.843Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:47:09.843Z] Validating nodejs source
+[debug] [2024-12-15T21:47:10.959Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:47:10.960Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:47:10.960Z] Building nodejs source
+[debug] [2024-12-15T21:47:10.960Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:47:10.961Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:47:10.962Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:47:11.327Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:48:47.396Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:48:48.398Z] Validating nodejs source
+[debug] [2024-12-15T21:48:49.012Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:48:49.012Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:48:49.012Z] Building nodejs source
+[debug] [2024-12-15T21:48:49.012Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:48:49.013Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:48:49.013Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:48:49.425Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:49:22.795Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:49:23.796Z] Validating nodejs source
+[debug] [2024-12-15T21:49:24.391Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:49:24.391Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:49:24.391Z] Building nodejs source
+[debug] [2024-12-15T21:49:24.391Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:49:24.392Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:49:24.393Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:49:24.752Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:50:42.420Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:50:43.420Z] Validating nodejs source
+[debug] [2024-12-15T21:50:44.023Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:50:44.023Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:50:44.023Z] Building nodejs source
+[debug] [2024-12-15T21:50:44.023Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:50:44.024Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:50:44.024Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:50:44.328Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:56:03.076Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:56:04.077Z] Validating nodejs source
+[debug] [2024-12-15T21:56:04.821Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:56:04.821Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:56:04.822Z] Building nodejs source
+[debug] [2024-12-15T21:56:04.822Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:56:04.822Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:56:04.823Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:56:05.125Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T21:58:58.921Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T21:58:59.921Z] Validating nodejs source
+[debug] [2024-12-15T21:59:00.451Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T21:59:00.451Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T21:59:00.451Z] Building nodejs source
+[debug] [2024-12-15T21:59:00.451Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T21:59:00.452Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T21:59:00.453Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T21:59:00.768Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T22:06:36.008Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T22:06:37.008Z] Validating nodejs source
+[debug] [2024-12-15T22:06:37.606Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T22:06:37.606Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T22:06:37.606Z] Building nodejs source
+[debug] [2024-12-15T22:06:37.606Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T22:06:37.607Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T22:06:37.608Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T22:06:37.911Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T22:18:33.512Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T22:18:34.512Z] Validating nodejs source
+[debug] [2024-12-15T22:18:35.210Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T22:18:35.211Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T22:18:35.211Z] Building nodejs source
+[debug] [2024-12-15T22:18:35.211Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T22:18:35.212Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T22:18:35.212Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T22:18:35.569Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T22:20:58.861Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T22:20:59.863Z] Validating nodejs source
+[debug] [2024-12-15T22:21:00.516Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T22:21:00.516Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T22:21:00.517Z] Building nodejs source
+[debug] [2024-12-15T22:21:00.517Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T22:21:00.517Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T22:21:00.519Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T22:21:01.230Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T22:21:02.847Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T22:21:03.848Z] Validating nodejs source
+[debug] [2024-12-15T22:21:04.485Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T22:21:04.485Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T22:21:04.485Z] Building nodejs source
+[debug] [2024-12-15T22:21:04.485Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T22:21:04.487Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T22:21:04.488Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T22:21:04.979Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T22:30:31.365Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T22:30:32.365Z] Validating nodejs source
+[debug] [2024-12-15T22:30:33.009Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T22:30:33.009Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T22:30:33.009Z] Building nodejs source
+[debug] [2024-12-15T22:30:33.010Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T22:30:33.010Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T22:30:33.011Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T22:30:33.236Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T22:30:33.481Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T22:30:34.237Z] Validating nodejs source
+[debug] [2024-12-15T22:30:34.858Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T22:30:34.861Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T22:30:34.861Z] Building nodejs source
+[debug] [2024-12-15T22:30:34.861Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T22:30:34.862Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T22:30:34.863Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T22:30:35.378Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}
+[debug] [2024-12-15T22:32:50.292Z] File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/ege/Desktop/TirTir_v3/functions/index.js changed, reloading triggers"}}
+[debug] [2024-12-15T22:32:51.292Z] Validating nodejs source
+[debug] [2024-12-15T22:32:51.986Z] checkFunctionsSDKVersion encountered error: Unexpected end of JSON input {}
+[debug] [2024-12-15T22:32:51.987Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "firebase-functions-test": "^3.1.0",
+    "globals": "^15.13.0"
+  },
+  "private": true
+}
+[debug] [2024-12-15T22:32:51.987Z] Building nodejs source
+[debug] [2024-12-15T22:32:51.987Z] Failed to find version of module node: reached end of search path /home/ege/Desktop/TirTir_v3/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-12-15T22:32:51.988Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-15T22:32:51.988Z] Found firebase-functions binary at '/home/ege/Desktop/TirTir_v3/functions/node_modules/.bin/firebase-functions'
+[debug] [2024-12-15T22:32:52.454Z] Got response from /__/functions.yaml {"endpoints":{"getWeather":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getWeather"},"processImage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"processImage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: getWeather, processImage. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: getWeather, processImage."}}

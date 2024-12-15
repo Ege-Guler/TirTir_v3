@@ -45,16 +45,21 @@ export class AccountComponent {
     if (!user) {
       console.error('User not authenticated');
       this.uploadError = true;
+      this.processing = true;
       setTimeout(() => (this.uploadError = false), 3000);
       return;
     }
-
+  
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
       try {
-        await this.imageUploadService.uploadUserImage(user.id, file);
+        // Upload the image and get the image URL
+        const imageUrl = await this.imageUploadService.uploadUserImage(user.id, file);
+        console.log('Image uploaded successfully:', imageUrl);
+  
         this.uploadSuccess = true; 
+        this.downloadUrl = imageUrl; // Store the URL if needed for later use
         setTimeout(() => (this.uploadSuccess = false), 3000); 
       } catch (error) {
         console.error('Upload failed:', error);
@@ -63,43 +68,53 @@ export class AccountComponent {
       }
     }
   }
+  
 
 
 
 
-processImage(): Observable<string> {
-  if (!this.downloadUrl) {
-    return throwError(() => new Error('Image URL is required.'));
+  processImage(): Observable<string> {
+    console.log('Processing image...');
+    console.log('Image URL:', this.downloadUrl);
+    if (!this.downloadUrl) {
+      console.error('Error: Image URL is required.');
+      return throwError(() => new Error('Image URL is required.'));
+    }
+  
+    return from(
+      fetch(this.FIREBASE_FUNCTION_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ imageUrl: this.downloadUrl }),
+      })
+    ).pipe(
+      switchMap(async (response) => {
+        console.log('HTTP Response:', response);
+        if (!response.ok) {
+          const errorBody = await response.text(); // Extract error details if any
+          console.error('Error Response Body:', errorBody);
+          return throwError(() => new Error('Error processing image.'));
+        }
+        return response.json();
+      }),
+      map((data: { success?: boolean; text: string }) => {
+        console.log('Response Data:', data);
+        if (data?.text) {
+          console.log('Extracted Text:', data.text);
+          return data.text;
+        } else {
+          throw new Error('Text extraction failed.');
+        }
+      }),
+      catchError((error) => {
+        console.error('Error processing image:', error.message || error);
+        return throwError(() => new Error('Error processing image. Please try again.'));
+      })
+    );
   }
-
-  return from(
-    fetch(this.FIREBASE_FUNCTION_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ imageUrl: this.downloadUrl }),
-    })
-  ).pipe(
-    switchMap((response) => {
-      if (!response.ok) {
-        return throwError(() => new Error('Error processing image.'));
-      }
-      return from(response.json());
-    }),
-    map((data: { success: boolean; extractedText: string }) => {
-      if (data.success) {
-        return data.extractedText;
-      } else {
-        throw new Error('Text extraction failed.');
-      }
-    }),
-    catchError((error) => {
-      console.error('Error processing image:', error);
-      return throwError(() => new Error('Error processing image. Please try again.'));
-    })
-  );
-}
+  
 
     
 
