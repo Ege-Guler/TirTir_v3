@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
-import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc, getDoc, updateDoc } from '@angular/fire/firestore';
 
 export interface User {
   id: string;
@@ -10,6 +10,7 @@ export interface User {
   lastName: string;
   email: string;
   phone: string;
+  lastLogin: [Date, Date];
 }
 
 @Injectable({
@@ -36,7 +37,21 @@ export class AuthService {
 
       if (userDoc.exists()) {
         const user = userDoc.data() as User;
-        this.currentUserSubject.next(user);
+
+        const now = new Date();
+        let updatedLastLogin: [Date, Date];
+
+        if (user.lastLogin) {
+          updatedLastLogin = [now, user.lastLogin[0]];
+        } else {
+          updatedLastLogin = [now, now];
+        }
+
+        // Update Firestore
+        await updateDoc(userDocRef, { lastLogin: updatedLastLogin });
+
+        // Update local user state
+        this.currentUserSubject.next({ ...user, lastLogin: updatedLastLogin });
         this.isAuthenticatedSubject.next(true);
         this.router.navigate(['/account']);
       } else {
@@ -57,12 +72,14 @@ export class AuthService {
       const firebaseUser = userCredential.user;
 
       // Save user data to Firestore
+      const now = new Date();
       const user: User = {
         id: firebaseUser.uid,
         firstName: userData.firstName,
         lastName: userData.lastName,
         email: firebaseUser.email ?? '',
         phone: userData.phone,
+        lastLogin: [now, now], // Init both indexes with reg date
       };
 
       const userDocRef = doc(this.firestore, `users/${firebaseUser.uid}`);
@@ -93,13 +110,32 @@ export class AuthService {
     }
   }
 
-  // Get Current User
   getCurrentUser(): User | null {
     return this.currentUserSubject.value;
   }
 
-  // Check Authentication Status
   isAuthenticated(): boolean {
     return this.isAuthenticatedSubject.value;
   }
+  getPreviousLoginDate(): string | null {
+    const currentUser = this.currentUserSubject.value;
+  
+    if (currentUser && currentUser.lastLogin[1]) {
+      const previousLoginDate = currentUser.lastLogin[1];
+  
+      return previousLoginDate.toLocaleString('tr-TR', {
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long',   
+        day: 'numeric',  
+        hour: 'numeric', 
+        minute: '2-digit',
+      });
+    }
+  
+    return null;
+  }
+  
+
+  
 }

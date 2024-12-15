@@ -12,8 +12,12 @@ import { Observable } from 'rxjs';
 })
 export class AccountComponent {
   currentUser$: Observable<User | null>;
-
+  lastLogin: string | null;
   constructor(private authService: AuthService) {
     this.currentUser$ = this.authService.currentUser$;
+
+    this.lastLogin = this.authService.getPreviousLoginDate();
   }
+
+
 }
