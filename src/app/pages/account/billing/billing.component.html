@@ -1,14 +1,14 @@
 <div class="min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4">
   <div class="container mx-auto max-w-4xl">
     <div class="glass-card p-6 sm:p-8">
-      <h1 class="text-2xl sm:text-3xl font-bold text-light mb-6">Billing Details</h1>
+      <h1 class="text-2xl sm:text-3xl font-bold text-light mb-6">Faturalama Detayları</h1>
 
       <div class="space-y-6">
         <!-- Payment Methods -->
         <div>
           <div class="flex items-center justify-between mb-4">
-            <h2 class="text-xl font-semibold text-light">Payment Methods</h2>
-            <app-button variant="outline" size="sm"(click)="navigateToAddNew()">Add New</app-button>
+            <h2 class="text-xl font-semibold text-light">Ödeme Yöntemleri</h2>
+            <app-button variant="outline" size="sm"(click)="navigateToAddNew()">Yeni Ekle</app-button>
           </div>
 
           <div class="space-y-4">
@@ -33,7 +33,7 @@
 
                 <div>
                   <div class="font-medium text-light">
-                    {{ method.type === 'card' ? 'Credit Card' : 'PayPal' }}
+                    {{ method.type === 'card' ? 'Kredi Kartı' : 'PayPal' }}
                     <span *ngIf="method.isDefault" 
                           class="ml-2 text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full">
                       Default
@@ -60,15 +60,6 @@
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Billing Address -->
-        <div>
-          <h2 class="text-xl font-semibold text-light mb-4">Billing Address</h2>
-          <div class="p-4 bg-white/5 rounded-xl">
-            <p class="text-light/70">No billing address added yet.</p>
-            <app-button variant="outline" size="sm" class="mt-4">Add Address</app-button>
           </div>
         </div>
       </div>
