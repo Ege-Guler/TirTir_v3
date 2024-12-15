@@ -24,13 +24,15 @@ interface WeatherResponse {
   providedIn: 'root',
 })
 export class WeatherService {
-  private readonly API_KEY = '8b7987216c302daf037de6642cdb16a4'; // Replace with your OpenWeatherMap API key
   private readonly FALLBACK_LOCATION = {
     coords: {
       latitude: 41.045824, // Istanbul's latitude
       longitude: 29.020456, // Istanbul's longitude
     },
   };
+
+  private readonly FIREBASE_FUNCTION_URL =
+    'https://us-central1-tirtir-61.cloudfunctions.net/getWeather'; // Replace <region> and <project-id> with your Firebase function's URL
 
   constructor() {}
 
@@ -65,7 +67,8 @@ export class WeatherService {
   }
 
   private fetchWeatherData(latitude: number, longitude: number): Promise<WeatherResponse> {
-    const url = `/weather-api/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${this.API_KEY}&units=metric`;
+    // Call the Firebase Cloud Function instead of the OpenWeatherMap API directly
+    const url = `${this.FIREBASE_FUNCTION_URL}?lat=${latitude}&lon=${longitude}`;
 
     return fetch(url, {
       method: 'GET',
