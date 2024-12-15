@@ -1,5 +1,5 @@
 .step-container {
-  @apply min-h-[calc(100vh-64px)] bg-gradient-radial from-secondary via-dark to-dark p-4;
+  @apply min-h-screen bg-gradient-to-b from-dark via-gray-800 to-secondary py-8;
 }
 
 .step-content {

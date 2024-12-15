@@ -82,23 +82,23 @@
   <!-- Mobile Menu -->
   <div *ngIf="isMenuOpen" class="mobile-menu">
     <div class="mobile-menu-container">
-      <a routerLink="/search" class="mobile-nav-link" (click)="isMenuOpen = false">Find Cars</a>
+      <a routerLink="/search" class="mobile-nav-link" (click)="isMenuOpen = false">Araba Bul</a>
       
       <ng-container *ngIf="authService.currentUser$ | async as user">
         <div class="mobile-menu-divider"></div>
-        <a routerLink="/account" class="mobile-nav-link" (click)="isMenuOpen = false">Profile</a>
-        <a routerLink="/account/booking" class="mobile-nav-link" (click)="isMenuOpen = false">My Bookings</a>
-        <a routerLink="/account/host/create" class="mobile-nav-link" (click)="isMenuOpen = false">List Your Car</a>
-        <a routerLink="/account/host" class="mobile-nav-link" (click)="isMenuOpen = false">My Listings</a>
-        <a routerLink="/account/transactions" class="mobile-nav-link" (click)="isMenuOpen = false">Transactions</a>
-        <a routerLink="/account/billing" class="mobile-nav-link" (click)="isMenuOpen = false">Billing</a>
-        <button (click)="logout()" class="mobile-nav-link text-red-400">Logout</button>
+        <a routerLink="/account" class="mobile-nav-link" (click)="isMenuOpen = false">Profil</a>
+        <a routerLink="/account/booking" class="mobile-nav-link" (click)="isMenuOpen = false">Rezerasyonlarım</a>
+        <a routerLink="/account/host/create" class="mobile-nav-link" (click)="isMenuOpen = false">Araba Listele</a>
+        <a routerLink="/account/host" class="mobile-nav-link" (click)="isMenuOpen = false">Listelemelerim</a>
+        <a routerLink="/account/transactions" class="mobile-nav-link" (click)="isMenuOpen = false">İşlemler</a>
+        <a routerLink="/account/billing" class="mobile-nav-link" (click)="isMenuOpen = false">Ödemeler</a>
+        <button (click)="logout()" class="mobile-nav-link text-red-400">Güvenli Çıkış</button>
       </ng-container>
 
       <ng-container *ngIf="!(authService.currentUser$ | async)">
         <div class="mobile-menu-divider"></div>
-        <a routerLink="/login" class="mobile-nav-link" (click)="isMenuOpen = false">Login</a>
-        <a routerLink="/register" class="mobile-nav-link" (click)="isMenuOpen = false">Sign Up</a>
+        <a routerLink="/login" class="mobile-nav-link" (click)="isMenuOpen = false">Giriş</a>
+        <a routerLink="/register" class="mobile-nav-link" (click)="isMenuOpen = false">Kayıt Ol</a>
       </ng-container>
     </div>
   </div>
