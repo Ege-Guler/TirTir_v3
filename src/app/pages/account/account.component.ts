@@ -12,11 +12,21 @@ import { Observable } from 'rxjs';
 })
 export class AccountComponent {
   currentUser$: Observable<User | null>;
-  lastLogin: string | null;
+  lastLogin!: string | null;
   constructor(private authService: AuthService) {
     this.currentUser$ = this.authService.currentUser$;
-
-    this.lastLogin = this.authService.getPreviousLoginDate();
+    this.currentUser$.subscribe((user) => {
+      if (user) {
+        this.lastLogin = user.lastLogin[1].toLocaleString('tr-TR', {
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long',   
+        day: 'numeric',  
+        hour: 'numeric', 
+        minute: '2-digit',
+      });
+      }
+    });
   }
 
 

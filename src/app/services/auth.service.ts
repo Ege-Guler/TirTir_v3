@@ -31,30 +31,26 @@ export class AuthService {
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
       const firebaseUser = userCredential.user;
 
-      // Retrieve user details from Firestore
       const userDocRef = doc(this.firestore, `users/${firebaseUser.uid}`);
       const userDoc = await getDoc(userDocRef);
 
       if (userDoc.exists()) {
         const user = userDoc.data() as User;
-
+      
+        const lastLogin = user.lastLogin.map((timestamp) =>
+          timestamp instanceof Date ? timestamp : (timestamp as any).toDate()
+        ) as [Date, Date];
+      
         const now = new Date();
-        let updatedLastLogin: [Date, Date];
-
-        if (user.lastLogin) {
-          updatedLastLogin = [now, user.lastLogin[0]];
-        } else {
-          updatedLastLogin = [now, now];
-        }
-
-        // Update Firestore
+        const updatedLastLogin: [Date, Date] = [now, lastLogin[0]];
+      
         await updateDoc(userDocRef, { lastLogin: updatedLastLogin });
-
-        // Update local user state
+      
         this.currentUserSubject.next({ ...user, lastLogin: updatedLastLogin });
         this.isAuthenticatedSubject.next(true);
         this.router.navigate(['/account']);
-      } else {
+      }
+       else {
         throw new Error('User data not found in Firestore');
       }
     } catch (error) {
@@ -117,25 +113,4 @@ export class AuthService {
   isAuthenticated(): boolean {
     return this.isAuthenticatedSubject.value;
   }
-  getPreviousLoginDate(): string | null {
-    const currentUser = this.currentUserSubject.value;
-  
-    if (currentUser && currentUser.lastLogin[1]) {
-      const previousLoginDate = currentUser.lastLogin[1];
-  
-      return previousLoginDate.toLocaleString('tr-TR', {
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long',   
-        day: 'numeric',  
-        hour: 'numeric', 
-        minute: '2-digit',
-      });
-    }
-  
-    return null;
-  }
-  
-
-  
 }
