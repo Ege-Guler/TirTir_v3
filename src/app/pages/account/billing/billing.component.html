@@ -51,9 +51,9 @@
                     </span>
                   </div>
                   <div class="text-sm text-light/70">
-                    {{ method.cardHolderName }} ending in {{ method.cardNumber.slice(-4) }}
+                    {{ method.cardHolderName }} sonu {{ method.cardNumber.slice(-4) }} ile biten.
                     <span *ngIf="method.expiryYear && method.expiryMonth" class="ml-2">
-                      Expires {{ method.expiryMonth }} / {{ method.expiryYear }}
+                      Son Kull. Tarih {{ method.expiryMonth }} / {{ method.expiryYear }}
                     </span>
                   </div>
                 </div>
@@ -62,11 +62,11 @@
               <div class="flex items-center gap-2">
                 <button *ngIf="!method.isDefault" (click)="setDefaultPaymentMethod(method.id)"
                   class="p-2 text-light/70 hover:text-primary transition-colors">
-                  Set Default
+                  Varsayılan Yap
                 </button>
                 <button (click)="removePaymentMethod(method.id)"
                   class="p-2 text-red-400 hover:text-red-300 transition-colors">
-                  Remove
+                  Kaldır
                 </button>
               </div>
             </div>

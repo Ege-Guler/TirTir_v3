@@ -28,13 +28,13 @@ import { ListingService } from '../../services/listing.service';
 export class SearchComponent implements OnInit {
   viewMode: 'grid' | 'map' = 'grid';
   isFiltersOpen = false;
-  maxPrice = 200;
+  maxPrice = 50000;
   selectedMake = '';
   selectedLocation?: Location;
   makes: string[] = [];
-  minYear = 2015;
+  minYear = 1990;
   maxYear = new Date().getFullYear();
-  maxMileage = 100000;
+  maxMileage = 100000000;
   selectedCategory = '';
   selectedTransmission = '';
   selectedFuelType = '';
@@ -53,6 +53,7 @@ export class SearchComponent implements OnInit {
     this.listingService.getAllListings().subscribe(
       (cars) => {
         this.cars = cars; // Assign the fetched cars
+        console.log('Fetched cars:', cars);
       },
       (error) => {
         console.error('Error fetching global listings:', error);
@@ -111,12 +112,12 @@ export class SearchComponent implements OnInit {
 
   clearAllFilters() {
     this.tempFilters = {
-      maxPrice: 200,
+      maxPrice: 50000,
       selectedMake: '',
       location: undefined,
-      minYear: 2015,
+      minYear: 1990,
       maxYear: new Date().getFullYear(),
-      maxMileage: 100000,
+      maxMileage: 100000000,
       selectedCategory: '',
       selectedTransmission: '',
       selectedFuelType: '',
@@ -127,11 +128,11 @@ export class SearchComponent implements OnInit {
   get activeFilterCount(): number {
     let count = 0;
     if (this.selectedMake) count++;
-    if (this.maxPrice !== 200) count++;
+    if (this.maxPrice !== 50000) count++;
     if (this.selectedLocation) count++;
-    if (this.minYear !== 2015) count++;
+    if (this.minYear !== 1990) count++;
     if (this.maxYear !== new Date().getFullYear()) count++;
-    if (this.maxMileage !== 100000) count++;
+    if (this.maxMileage !== 100000000) count++;
     if (this.selectedCategory) count++;
     if (this.selectedTransmission) count++;
     if (this.selectedFuelType) count++;

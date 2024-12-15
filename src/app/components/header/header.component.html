@@ -6,9 +6,9 @@
 
       <!-- Desktop Navigation -->
       <div class="desktop-nav">
-        <a routerLink="/search" class="nav-link">Araba Bul</a>
+        <a routerLink="/search" class="nav-link">Bul</a>
         <ng-container *ngIf="authService.currentUser$ | async as user">
-          <a routerLink="/account/host/create" class="nav-link">Arabanı Listele</a>
+          <a routerLink="/account/host/create" class="nav-link">Listele</a>
           <div class="relative">
             <button (click)="toggleAccountMenu()" class="user-button">
               <div class="user-avatar">
@@ -82,7 +82,7 @@
   <!-- Mobile Menu -->
   <div *ngIf="isMenuOpen" class="mobile-menu">
     <div class="mobile-menu-container">
-      <a routerLink="/search" class="mobile-nav-link" (click)="isMenuOpen = false">Araba Bul</a>
+      <a routerLink="/search" class="mobile-nav-link" (click)="isMenuOpen = false">Bul</a>
       
       <ng-container *ngIf="authService.currentUser$ | async as user">
         <div class="mobile-menu-divider"></div>

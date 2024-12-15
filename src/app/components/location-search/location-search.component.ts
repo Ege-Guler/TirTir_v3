@@ -13,7 +13,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./location-search.component.css']
 })
 export class LocationSearchComponent implements OnDestroy {
-  @Input() placeholder = 'Search location';
+  @Input() placeholder = 'Konum Ara';
   @Input() initialLocation?: Location;
   @Output() locationSelected = new EventEmitter<Location>();
   @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;

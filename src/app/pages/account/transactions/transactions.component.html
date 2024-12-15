@@ -21,17 +21,17 @@
           </div>
           <div class="grid grid-cols-2 gap-4 text-light/80 text-sm">
             <div>
-              <p><span class="font-medium text-light">Renter:</span> {{ transaction.renterId || 'N/A' }}</p>
-              <p><span class="font-medium text-light">Owner:</span> {{ transaction.ownerId || 'N/A' }}</p>
+              <p><span class="font-medium text-light">Kiralayan:</span> {{ transaction.renterId || 'N/A' }}</p>
+              <p><span class="font-medium text-light">Sahip:</span> {{ transaction.ownerId || 'N/A' }}</p>
             </div>
             <div>
-              <p><span class="font-medium text-light">Start Date:</span> {{ transaction.startDate || 'N/A' }}</p>
-              <p><span class="font-medium text-light">End Date:</span> {{ transaction.endDate || 'N/A' }}</p>
+              <p><span class="font-medium text-light">Başlangıç Tarihi:</span> {{ transaction.startDate || 'N/A' }}</p>
+              <p><span class="font-medium text-light">Bitiş Tarihi:</span> {{ transaction.endDate || 'N/A' }}</p>
             </div>
           </div>
           <div class="mt-4">
             <p class="text-lg font-bold text-green-400">
-              Amount: ${{ transaction.totalAmount !== undefined ? transaction.totalAmount : 0 }}
+              Tutar: ₺{{ transaction.totalAmount !== undefined ? transaction.totalAmount : 0 }}
             </p>
           </div>
         </div>

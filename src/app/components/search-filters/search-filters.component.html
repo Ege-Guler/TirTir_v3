@@ -1,7 +1,7 @@
 <div class="p-4 space-y-6">
   <!-- Location Search -->
   <div class="filter-group">
-    <label class="filter-label">Location</label>
+    <label class="filter-label">Konum</label>
     <app-location-search
       (locationSelected)="onLocationSelected($event)">
     </app-location-search>
@@ -9,12 +9,12 @@
 
   <!-- Category -->
   <div class="filter-group">
-    <label class="filter-label">Vehicle Type</label>
+    <label class="filter-label">Araç Tipi</label>
     <select 
       class="input-field" 
       [(ngModel)]="selectedCategory"
       (ngModelChange)="onFilterChange()">
-      <option value="">All Types</option>
+      <option value="">Her Tip</option>
       <option *ngFor="let category of categories" [value]="category">
         {{ category | titlecase }}
       </option>
@@ -23,39 +23,39 @@
 
   <!-- Price Range -->
   <div class="filter-group">
-    <label class="filter-label">Daily Price Range</label>
+    <label class="filter-label">Günlük Ücret</label>
     <div class="flex items-center gap-4">
-      <span class="text-light/70 min-w-[3rem]">${{ minPrice }}</span>
+      <span class="text-light/70 min-w-[3rem]">₺{{ minPrice }}</span>
       <input 
         type="range" 
         [min]="minPrice" 
-        [max]="300" 
+        [max]="100000" 
         [(ngModel)]="maxPrice"
         (ngModelChange)="onFilterChange()">
-      <span class="text-light/70 min-w-[3rem]">${{ maxPrice }}</span>
+      <span class="text-light/70 min-w-[3rem]">₺{{ maxPrice }}</span>
     </div>
   </div>
   
   <!-- Make Selection -->
   <div class="filter-group">
-    <label class="filter-label">Make</label>
+    <label class="filter-label">Marka</label>
     <select 
       class="input-field" 
       [(ngModel)]="selectedMake"
       (ngModelChange)="onFilterChange()">
-      <option value="">All Makes</option>
+      <option value="">Tüm Markalar</option>
       <option *ngFor="let make of makes" [value]="make">{{ make }}</option>
     </select>
   </div>
 
   <!-- Transmission -->
   <div class="filter-group">
-    <label class="filter-label">Transmission</label>
+    <label class="filter-label">Vites</label>
     <select 
       class="input-field" 
       [(ngModel)]="selectedTransmission"
       (ngModelChange)="onFilterChange()">
-      <option value="">Any Transmission</option>
+      <option value="">Tümü</option>
       <option *ngFor="let type of transmissionTypes" [value]="type">
         {{ type | titlecase }}
       </option>
@@ -64,12 +64,12 @@
 
   <!-- Fuel Type -->
   <div class="filter-group">
-    <label class="filter-label">Fuel Type</label>
+    <label class="filter-label">Yakıt Tipi</label>
     <select 
       class="input-field" 
       [(ngModel)]="selectedFuelType"
       (ngModelChange)="onFilterChange()">
-      <option value="">Any Fuel Type</option>
+      <option value="">Tümü</option>
       <option *ngFor="let type of fuelTypes" [value]="type">
         {{ type | titlecase }}
       </option>
@@ -78,7 +78,7 @@
 
   <!-- Year Range -->
   <div class="filter-group">
-    <label class="filter-label">Year</label>
+    <label class="filter-label">Yıl</label>
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label class="text-xs text-light/70">From</label>
@@ -103,13 +103,13 @@
 
   <!-- Mileage Range -->
   <div class="filter-group">
-    <label class="filter-label">Maximum Mileage (km)</label>
+    <label class="filter-label">Maks Km</label>
     <div class="flex items-center gap-4">
       <span class="text-light/70 min-w-[3rem]">0</span>
       <input 
         type="range" 
         min="0" 
-        max="200000" 
+        max="200000000" 
         step="5000"
         [(ngModel)]="maxMileage"
         (ngModelChange)="onFilterChange()">
@@ -119,7 +119,7 @@
 
   <!-- Features -->
   <div class="filter-group">
-    <label class="filter-label">Features</label>
+    <label class="filter-label">Ek Donanımlar</label>
     <div class="grid grid-cols-2 gap-2 mt-2">
       <div *ngFor="let feature of features" 
            class="flex items-center">
@@ -141,6 +141,6 @@
     (click)="clearFilters()"
     class="w-full px-4 py-2 bg-white/5 hover:bg-white/10 text-light/70 
            hover:text-light rounded-xl transition-colors">
-    Clear All Filters
+    Temizle
   </button>
 </div>

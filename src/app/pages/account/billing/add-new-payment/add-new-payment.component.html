@@ -5,7 +5,7 @@
       <form (ngSubmit)="onSubmit()" class="space-y-6">
         <!-- Card Type Dropdown -->
         <div>
-          <label class="block text-light mb-1">Card Type</label>
+          <label class="block text-light mb-1">Kart Tipi</label>
           <select [(ngModel)]="billingMethod.type" name="cardType" class="auth-input bg-white/10 text-light rounded-md"
             required>
             <option value="visa">Visa</option>
@@ -16,22 +16,22 @@
 
         <!-- Cardholder Name -->
         <div>
-          <label class="block text-light mb-1">Cardholder Name</label>
+          <label class="block text-light mb-1">Kart Sahibinin Adı</label>
           <input [(ngModel)]="billingMethod.cardHolderName" name="cardName" class="auth-input"
-            placeholder="Enter cardholder name" required />
+            placeholder="Onur Alp Gündüz" required />
         </div>
 
         <!-- Card Number -->
         <div>
-          <label class="block text-light mb-1">Card Number</label>
+          <label class="block text-light mb-1">Kart Numarası</label>
           <input [(ngModel)]="billingMethod.cardNumber" name="cardNumber" class="auth-input"
-            placeholder="Enter card number" required />
+            placeholder="5405 xxxx xxxx 1231" required />
         </div>
 
         <!-- Expiry Date Dropdowns -->
         <div class="flex gap-4">
           <div class="flex-1">
-            <label class="block text-light mb-1">Expiry Month</label>
+            <label class="block text-light mb-1">Ay</label>
             <select [(ngModel)]="billingMethod.expiryMonth" name="expiryMonth"
               class="auth-input bg-white/10 text-light rounded-md" required>
               <option *ngFor="let month of months" [value]="month.value">
@@ -41,7 +41,7 @@
 
           </div>
           <div class="flex-1">
-            <label class="block text-light mb-1">Expiry Year</label>
+            <label class="block text-light mb-1">Yıl</label>
             <select [(ngModel)]="billingMethod.expiryYear" name="expiryYear"
               class="auth-input bg-white/10 text-light rounded-md" required>
               <option *ngFor="let year of years" [value]="year">{{ year }}</option>
@@ -52,10 +52,10 @@
         <!-- Buttons -->
         <div class="flex gap-4 mt-6">
           <app-button variant="primary" size="md" type="submit">
-            Save
+            Kaydet
           </app-button>
           <app-button variant="outline" size="md" (click)="cancel()" type="button">
-            Cancel
+            İptal
           </app-button>
         </div>
       </form>

@@ -32,31 +32,32 @@ export interface Car {
 })
 export class CarService {
   private readonly FEATURES = [
-    'Air Conditioning',
-    'GPS Navigation',
+    'Klima',
+    'GPS Navigasyon',
     'Bluetooth',
-    'Backup Camera',
-    'Parking Sensors',
-    'Cruise Control',
-    'Power Windows',
-    'Power Locks',
-    'Power Mirrors',
-    'Keyless Entry',
-    'Push Button Start',
-    'Heated Seats',
-    'Leather Seats',
+    'Geri Görüş Kamerası',
+    'Park Sensörleri',
+    'Hız Sabitleyici',
+    'Elektrikli Camlar',
+    'Merkezi Kilit Sistemi',
+    'Elektrikli Aynalar',
+    'Anahtarsız Giriş',
+    'Düğmeyle Çalıştırma',
+    'Isıtmalı Koltuklar',
+    'Deri Koltuklar',
     'Sunroof',
-    'Premium Audio',
+    'Premium Ses Sistemi',
     'Apple CarPlay',
     'Android Auto',
     'WiFi Hotspot',
-    'Towing Package',
-    'Roof Rack',
-    'Cargo Cover',
-    'Trailer Hitch',
-    'Bed Liner',
-    'Tool Box'
+    'Çeki Paketi',
+    'Tavan Rafı',
+    'Bagaj Kapağı',
+    'Römork Kancası',
+    'Koltuk Koruyucu',
+    'Alet Kutusu'
   ];
+  
 
   private cars: Car[] = [
     {
