@@ -31,7 +31,9 @@
                 "glob": "**/*",
                 "input": "./node_modules/leaflet/dist/images",
                 "output": "./assets/leaflet/"
-              }
+              },
+              "./src/assets"
+
             ],
             "index": "src/index.html",
             "browser": "src/main.ts",
