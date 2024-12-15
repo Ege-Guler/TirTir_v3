@@ -30,6 +30,14 @@ service cloud.firestore {
                      && request.auth.uid == userId 
                      && request.resource.data.car.owner.uid == userId;
       }
+
+      match /billing/{billingId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow write: if request.auth != null 
+                     && request.auth.uid == userId 
+        allow delete: if request.auth != null && request.auth.uid == userId;
+        
+      }
     }
 
     // Global listings access (using collectionGroup queries)
