@@ -17,12 +17,8 @@ export class MapViewComponent implements OnInit, OnDestroy {
   private map!: L.Map;
   private markers: L.Marker[] = [];
   private defaultLocation = { lat: 41.0082, lng: 28.9784 }; // Istanbul
-  private darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  });
-  private lightLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  });
+  private darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png');
+  private lightLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
   showNearestCars = false;
   selectedCar?: Car;
@@ -76,7 +72,7 @@ export class MapViewComponent implements OnInit, OnDestroy {
     this.map = L.map('map', {
       center: [location.lat, location.lng],
       zoom: 13,
-      zoomControl: false, // We'll add zoom control manually
+      zoomControl: false, 
       layers: [this.darkLayer] // Set dark layer as default
     });
 
@@ -113,16 +109,14 @@ export class MapViewComponent implements OnInit, OnDestroy {
   }
 
   private addCarMarkers() {
-    // Clear existing markers
     this.markers.forEach(marker => marker.remove());
     this.markers = [];
   
-    // Create bounds to fit all markers
     const bounds = L.latLngBounds([]);
   
     this.cars.forEach(car => {
       // Custom icon based on category
-      const isParkingLot = car.category === 'Park Alanı'; // Assuming `category` is a property in `Car`
+      const isParkingLot = car.category === 'Park Alanı';
       const carIcon = L.divIcon({
         className: 'custom-div-icon',
         html: isParkingLot
@@ -133,7 +127,6 @@ export class MapViewComponent implements OnInit, OnDestroy {
         popupAnchor: [0, -16]
       });
   
-      // Add marker with the correct icon
       const marker = L.marker([car.location.lat, car.location.lng], { icon: carIcon })
         .bindPopup(this.createPopupContent(car))
         .on('click', () => this.onMarkerClick(car))
@@ -206,6 +199,5 @@ export class MapViewComponent implements OnInit, OnDestroy {
 
   onMarkerClick(car: Car) {
     this.selectedCar = car;
-    this.showNearestCars = true;
   }
 }
