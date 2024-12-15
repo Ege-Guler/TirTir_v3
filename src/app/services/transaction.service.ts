@@ -5,6 +5,9 @@ import { from, Observable } from 'rxjs';
 
 export interface Transaction {
   transactionId?: string;
+  transactionName?: string;
+  ownerName: string;
+  renterName: string | null;
   carId: string;
   renterId: string; // User who makes the transaction
   ownerId: string; // User who leases the car

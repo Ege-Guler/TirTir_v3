@@ -8,7 +8,7 @@
         <div *ngFor="let transaction of transactions" class="transaction-card bg-dark/80 p-6 rounded-lg shadow-md">
           <div class="flex justify-between items-center mb-4">
             <h2 class="text-xl font-semibold text-light">
-              {{ transaction.carId || 'Unknown Car' }}
+              {{ transaction.transactionName || 'Unknown Car' }}
             </h2>
             <span 
               class="px-3 py-1 text-sm rounded-full font-medium"
@@ -21,8 +21,7 @@
           </div>
           <div class="grid grid-cols-2 gap-4 text-light/80 text-sm">
             <div>
-              <p><span class="font-medium text-light">Kiralayan:</span> {{ transaction.renterId || 'N/A' }}</p>
-              <p><span class="font-medium text-light">Sahip:</span> {{ transaction.ownerId || 'N/A' }}</p>
+              <p><span class="font-medium text-light">Sahip:</span> {{ transaction.ownerName || 'N/A' }}</p>
             </div>
             <div>
               <p><span class="font-medium text-light">Başlangıç Tarihi:</span> {{ transaction.startDate || 'N/A' }}</p>

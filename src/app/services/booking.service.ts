@@ -38,7 +38,10 @@ export class BookingService {
     
       // Create a corresponding transaction
       const transaction: Transaction = {
+        transactionName: booking.car.year +  ' ' + booking.car.make + ' ' + booking.car.model,
         carId: booking.carId,
+        ownerName: booking.car.owner.displayName,
+        renterName: user.displayName,
         renterId: user.uid,
         ownerId: booking.car.owner.uid,
         totalAmount: booking.totalPrice,
