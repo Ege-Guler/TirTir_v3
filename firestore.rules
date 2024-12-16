@@ -4,7 +4,7 @@ service cloud.firestore {
     // User-specific access
     match /users/{userId} {
       // Allow users to access their own user document
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write: if request.auth != null;
 
       // Allow users to access and manage their own listings
       match /listings/{listingId} {
@@ -37,6 +37,10 @@ service cloud.firestore {
                      && request.auth.uid == userId 
         allow delete: if request.auth != null && request.auth.uid == userId;
         
+      }
+      match /comments/{commentId} {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null;
       }
     }
 

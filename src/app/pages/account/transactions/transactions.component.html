@@ -5,7 +5,7 @@
 
       <div *ngIf="transactions && transactions.length > 0" class="space-y-6">
         <!-- Transaction Cards -->
-        <div *ngFor="let transaction of transactions" class="transaction-card bg-dark/80 p-6 rounded-lg shadow-md">
+        <div *ngFor="let transaction of transactions; let i = index" class="transaction-card bg-dark/80 p-6 rounded-lg shadow-md relative">
           <div class="flex justify-between items-center mb-4">
             <h2 class="text-xl font-semibold text-light">
               {{ transaction.transactionName || 'Unknown Car' }}
@@ -19,6 +19,7 @@
               {{ transaction.totalAmount > 0 ? 'Gider' : 'Gelir' }}
             </span>
           </div>
+        
           <div class="grid grid-cols-2 gap-4 text-light/80 text-sm">
             <div>
               <p><span class="font-medium text-light">Sahip:</span> {{ transaction.ownerName || 'N/A' }}</p>
@@ -28,12 +29,47 @@
               <p><span class="font-medium text-light">Bitiş Tarihi:</span> {{ transaction.endDate || 'N/A' }}</p>
             </div>
           </div>
+        
           <div class="mt-4">
             <p class="text-lg font-bold text-green-400">
               Tutar: ₺{{ transaction.totalAmount !== undefined ? transaction.totalAmount : 0 }}
             </p>
           </div>
+        
+          <!-- "Yorum Yaz" Button -->
+          <div class="mt-4 flex justify-end">
+            <button 
+              class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded shadow"
+              (click)="toggleCommentBox(i)">
+              Yorum Yaz
+            </button>
+          </div>
+        
+          <!-- Dropdown / Comment Box (controlled by commentBoxOpen[i]) -->
+          <div 
+            *ngIf="commentBoxOpen[i]"
+            class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded p-4 z-10 text-gray-800">
+            <textarea
+              [(ngModel)]="commentTexts[i]"
+              class="w-full border border-gray-300 rounded p-2 focus:outline-none"
+              rows="3"
+              placeholder="Yorumunuzu yazın..."></textarea>
+            <div class="mt-2 flex justify-end space-x-2">
+              <button 
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded"
+                (click)="cancelComment(i)">
+                İptal
+              </button>
+              <button 
+                class="bg-primary hover:bg-primary-dark text-white px-3 py-1 rounded"
+                (click)="submitComment(transaction.transactionName,transaction.ownerId ,i, transaction.transactionId, transaction.carId)">
+                Kaydet
+              </button>
+            </div>
+          </div>
         </div>
+        
+
       </div>
 
       <!-- Empty State -->

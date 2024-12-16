@@ -3,19 +3,21 @@ import { CommonModule } from '@angular/common';
 import { BookingService, Booking } from '../../../services/booking.service';
 import { Observable } from 'rxjs';
 import { Transaction, TransactionService } from '../../../services/transaction.service';
-
+import { CommentService } from '../../../services/comment.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './transactions.component.html',
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit {
   transactions: Transaction[] = [];
-
-  constructor(private transactionService: TransactionService) {}
+  commentBoxOpen: boolean[] = [];
+  commentTexts: string[] = [];
+  constructor(private transactionService: TransactionService, private commentService:CommentService) {}
 
   ngOnInit(): void {
     this.fetchTransactions();
@@ -32,4 +34,19 @@ export class TransactionsComponent implements OnInit {
       },
     });
   }
+
+  toggleCommentBox(index: number) {
+    this.commentBoxOpen[index] = !this.commentBoxOpen[index];
+  }
+
+  cancelComment(index: number) {
+    this.commentTexts[index] = '';
+    this.commentBoxOpen[index] = false;
+  }
+
+  submitComment(transactionName: string,ownerId:string, index: number, transactionId: string, carId: string) {
+    const comment = this.commentTexts[index];
+    this.commentService.addCommentToUser(transactionId, transactionName, ownerId, comment, carId);  
+  }
+
 }

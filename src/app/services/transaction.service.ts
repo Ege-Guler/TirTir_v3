@@ -4,8 +4,8 @@ import { Auth } from '@angular/fire/auth';
 import { from, Observable } from 'rxjs';
 
 export interface Transaction {
-  transactionId?: string;
-  transactionName?: string;
+  transactionId : string;
+  transactionName: string;
   ownerName: string;
   renterName: string | null;
   carId: string;
