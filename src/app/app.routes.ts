@@ -29,6 +29,10 @@ export const routes: Routes = [
       import('./pages/book/book.component').then(m => m.BookComponent)
   },
   {
+    path: 'comments/:userId',
+    loadComponent: () => import('./pages/account/comments/comments.component').then(m => m.CommentsComponent)
+  },
+  {
     path: 'account',
     canActivate: [AuthGuard],
     children: [
