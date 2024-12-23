@@ -5,15 +5,15 @@
       <div *ngIf="currentStep === 1" class="animate-fadeIn">
         <div class="step-header">
           <div>
-            <h1 class="step-title">Araba Detayları</h1>
-            <p class="step-subtitle">Bize arabandan bahset.</p>
+            <h1 class="step-title">Listeleme Detayları</h1>
+            <p class="step-subtitle">Bize listelemende bahset.</p>
           </div>
         </div>
 
         <div class="form-group">
           <!-- Category -->
           <div>
-            <label class="form-label">Araç Tipi</label>
+            <label class="form-label">Listeleme Tipi</label>
             <select 
               [(ngModel)]="form.category"
               (change)="onCategoryChange()"
@@ -205,8 +205,8 @@
       <div *ngIf="currentStep === 5" class="animate-fadeIn">
         <div class="step-header">
           <div>
-            <h1 class="step-title">Araç Lokasyonu</h1>
-            <p class="step-subtitle">Aracınızın bulunduğu yer</p>
+            <h1 class="step-title">Lokasyonu Seç</h1>
+            <p class="step-subtitle">İşte tam burada...</p>
           </div>
         </div>
 
@@ -228,7 +228,7 @@
                   stroke-width="2" 
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          {{ isLoadingLocation ? 'Getting location...' : 'Use My Current Location' }}
+          {{ isLoadingLocation ? 'Getting location...' : 'Benim konumumu kullan' }}
         </button>
 
         <!-- Error Message -->
@@ -246,7 +246,7 @@
         <!-- Selected Location -->
         <div *ngIf="form.location.address"
              class="location-info">
-          <h3 class="text-light font-medium mb-2">Selected Location</h3>
+          <h3 class="text-light font-medium mb-2">Seçilen Konum</h3>
           <p class="text-light/70">{{ form.location.address }}</p>
         </div>
       </div>
