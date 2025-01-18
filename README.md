@@ -1,6 +1,6 @@
 # TırTır App
 
-A modern truck-sharing application built with Angular and NativeScript.
+A modern P2P car rental application built with Angular and NativeScript.
 
 ## Prerequisites
 
